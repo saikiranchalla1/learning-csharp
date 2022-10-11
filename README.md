@@ -75,6 +75,8 @@ The `Hello` class declared by the "Hello, World" program has a single member, th
 
 The output of the program is produced by the `WriteLine` method of the `Console` class in the `System` namespace. This class is provided by the standard class libraries, which, by default, are automatically referenced by the compiler.
 
+## .NET Core vs .NET Framework
+Refer to [this](https://stackify.com/net-core-vs-net-framework/) blog to compare .NET core vs framework.
 
 ## DataTypes and Variables
 A type defines the structure and behavior of any data in C#. The declaration of a type may include its members, base type, interfaces it implements, and operations permitted for that type. A variable is a label that refers to an instance of a specific type.
@@ -372,112 +374,44 @@ The String class has the following two properties −
 #### Methods of the String class
 The String class has numerous methods that help you in working with the string objects. The following table provides some of the most commonly used methods −
 
-| **Sr.No.** | **Methods &amp; Description**                                                                                                                                                                                                                                               |
-|:----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| **1**      | public static int Compare(string strA, string strB)
-Compares two specified string objects and returns an integer that indicates their relative position in the sort order.                                                                                                  |
-| **2**      | public static int Compare(string strA, string strB, bool ignoreCase )
-Compares two specified string objects and returns an integer that indicates their relative position in the sort order. However, it ignores case if the Boolean parameter is true.
-                    |
-| **3**      | public static string Concat(string str0, string str1)
-Concatenates two string objects.
-                                                                                                                                                                                     |
-| **4**      | public static string Concat(string str0, string str1, string str2)
-Concatenates three string objects.
-                                                                                                                                                                      |
-| **5**      | public static string Concat(string str0, string str1, string str2, string str3)
-Concatenates four string objects.
-                                                                                                                                                          |
-| **6**      | public bool Contains(string value)
-Returns a value indicating whether the specified String object occurs within this string.                                                                                                                                                |
-| **7**      | public static string Copy(string str)
-Creates a new String object with the same value as the specified string.
-                                                                                                                                                             |
-| **8**      | public void CopyTo(int sourceIndex, char[] destination, int destinationIndex, int count)
-Copies a specified number of characters from a specified position of the String object to a specified position in an array of Unicode characters.                                  |
-| **9**      | public bool EndsWith(string value)
-Determines whether the end of the string object matches the specified string.
-                                                                                                                                                           |
-| **10**     | public bool Equals(string value)
-Determines whether the current String object and the specified String object have the same value.
-                                                                                                                                         |
-| **11**     | public static bool Equals(string a, string b)
-Determines whether two specified String objects have the same value.
-                                                                                                                                                         |
-| **12**     | public static string Format(string format, Object arg0)
-Replaces one or more format items in a specified string with the string representation of a specified object.
-                                                                                                      |
-| **13**     | public int IndexOf(char value)
-Returns the zero-based index of the first occurrence of the specified Unicode character in the current string.
-                                                                                                                              |
-| **14**     | public int IndexOf(string value)
-Returns the zero-based index of the first occurrence of the specified string in this instance.
-                                                                                                                                            |
-| **15**     | public int IndexOf(char value, int startIndex)
-Returns the zero-based index of the first occurrence of the specified Unicode character in this string, starting search at the specified character position.
-                                                                |
-| **16**     | public int IndexOf(string value, int startIndex)
-Returns the zero-based index of the first occurrence of the specified string in this instance, starting search at the specified character position.
-                                                                       |
-| **17**     | public int IndexOfAny(char[] anyOf)
-Returns the zero-based index of the first occurrence in this instance of any character in a specified array of Unicode characters.
-                                                                                                     |
-| **18**     | public int IndexOfAny(char[] anyOf, int startIndex)
-Returns the zero-based index of the first occurrence in this instance of any character in a specified array of Unicode characters, starting search at the specified character position.
-                                |
-| **19**     | public string Insert(int startIndex, string value)
-Returns a new string in which a specified string is inserted at a specified index position in the current string object.
-                                                                                                |
-| **20**     | public static bool IsNullOrEmpty(string value)
-Indicates whether the specified string is null or an Empty string.
-                                                                                                                                                          |
-| **21**     | public static string Join(string separator, params string[] value)
-Concatenates all the elements of a string array, using the specified separator between each element.
-                                                                                                    |
-| **22**     | public static string Join(string separator, string[] value, int startIndex, int count)
-Concatenates the specified elements of a string array, using the specified separator between each element.
-                                                                          |
-| **23**     | public int LastIndexOf(char value)
-Returns the zero-based index position of the last occurrence of the specified Unicode character within the current string object.
-                                                                                                       |
-| **24**     | public int LastIndexOf(string value)
-Returns the zero-based index position of the last occurrence of a specified string within the current string object.
-                                                                                                                  |
-| **25**     | public string Remove(int startIndex)
-Removes all the characters in the current instance, beginning at a specified position and continuing through the last position, and returns the string.
-                                                                               |
-| **26**     | public string Remove(int startIndex, int count)
-Removes the specified number of characters in the current string beginning at a specified position and returns the string.
-                                                                                                 |
-| **27**     | public string Replace(char oldChar, char newChar)
-Replaces all occurrences of a specified Unicode character in the current string object with the specified Unicode character and returns the new string.
-                                                                  |
-| **28**     | public string Replace(string oldValue, string newValue)
-Replaces all occurrences of a specified string in the current string object with the specified string and returns the new string.
-                                                                                  |
-| **29**     | public string[] Split(params char[] separator)
-Returns a string array that contains the substrings in the current string object, delimited by elements of a specified Unicode character array.
-                                                                             |
-| **30**     | public string[] Split(char[] separator, int count)
-Returns a string array that contains the substrings in the current string object, delimited by elements of a specified Unicode character array. The int parameter specifies the maximum number of substrings to return.
- |
-| **31**     | public bool StartsWith(string value)
-Determines whether the beginning of this string instance matches the specified string.                                                                                                                                                 |
-| **32**     | public char[] ToCharArray()
-Returns a Unicode character array with all the characters in the current string object.
-                                                                                                                                                        |
-| **33**     | public char[] ToCharArray(int startIndex, int length)
-Returns a Unicode character array with all the characters in the current string object, starting from the specified index and up to the specified length.
-                                                            |
-| **34**     | public string ToLower()
-Returns a copy of this string converted to lowercase.
-                                                                                                                                                                                              |
-| **35**     | public string ToUpper()
-Returns a copy of this string converted to uppercase.
-                                                                                                                                                                                              |
-| **36**     | public string Trim()
-Removes all leading and trailing white-space characters from the current String object.
-                                                                                                                                                               |
+| **Sr.No.** | **Methods Description**  |
+|:----------:|:-------:|
+| **1**      | public static int Compare(string strA, string strB) Compares two specified string objects and returns an integer that indicates their relative position in the sort order.   |
+| **2**      | public static int Compare(string strA, string strB, bool ignoreCase ) Compares two specified string objects and returns an integer that indicates their relative position in the sort order. However, it ignores case if the Boolean parameter is true. |
+| **3**      | public static string Concat(string str0, string str1) Concatenates two string objects. |
+| **4**      | public static string Concat(string str0, string str1, string str2) Concatenates three string objects.  |
+| **5**      | public static string Concat(string str0, string str1, string str2, string str3) Concatenates four string objects.  |
+| **6**      | public bool Contains(string value) Returns a value indicating whether the specified String object occurs within this string. |
+| **7**      | public static string Copy(string str) Creates a new String object with the same value as the specified string.  |
+| **8**      | public void CopyTo(int sourceIndex, char[] destination, int destinationIndex, int count) Copies a specified number of characters from a specified position of the String object to a specified position in an array of Unicode characters.    |
+| **9**      | public bool EndsWith(string value) Determines whether the end of the string object matches the specified string.  |
+| **10**     | public bool Equals(string value) Determines whether the current String object and the specified String object have the same value. |
+| **11**     | public static bool Equals(string a, string b) Determines whether two specified String objects have the same value. |
+| **12**     | public static string Format(string format, Object arg0) Replaces one or more format items in a specified string with the string representation of a specified object.   |
+| **13**     | public int IndexOf(char value) Returns the zero-based index of the first occurrence of the specified Unicode character in the current string.   |
+| **14**     | public int IndexOf(string value) Returns the zero-based index of the first occurrence of the specified string in this instance. |
+| **15**     | public int IndexOf(char value, int startIndex) Returns the zero-based index of the first occurrence of the specified Unicode character in this string, starting search at the specified character position.  |
+| **16**     | public int IndexOf(string value, int startIndex) Returns the zero-based index of the first occurrence of the specified string in this instance, starting search at the specified character position. |
+| **17**     | public int IndexOfAny(char[] anyOf) Returns the zero-based index of the first occurrence in this instance of any character in a specified array of Unicode characters. |
+| **18**     | public int IndexOfAny(char[] anyOf, int startIndex) Returns the zero-based index of the first occurrence in this instance of any character in a specified array of Unicode characters, starting search at the specified character position.   |
+| **19**     | public string Insert(int startIndex, string value) Returns a new string in which a specified string is inserted at a specified index position in the current string object. |
+| **20**     | public static bool IsNullOrEmpty(string value) Indicates whether the specified string is null or an Empty string. |
+| **21**     | public static string Join(string separator, params string[] value) Concatenates all the elements of a string array, using the specified separator between each element. |
+| **22**     | public static string Join(string separator, string[] value, int startIndex, int count) Concatenates the specified elements of a string array, using the specified separator between each element. |
+| **23**     | public int LastIndexOf(char value) Returns the zero-based index position of the last occurrence of the specified Unicode character within the current string object. |
+| **24**     | public int LastIndexOf(string value) Returns the zero-based index position of the last occurrence of a specified string within the current string object. |
+| **25**     | public string Remove(int startIndex) Removes all the characters in the current instance, beginning at a specified position and continuing through the last position, and returns the string. |
+| **26**     | public string Remove(int startIndex, int count) Removes the specified number of characters in the current string beginning at a specified position and returns the string. |
+| **27**     | public string Replace(char oldChar, char newChar) Replaces all occurrences of a specified Unicode character in the current string object with the specified Unicode character and returns the new string. |
+| **28**     | public string Replace(string oldValue, string newValue) Replaces all occurrences of a specified string in the current string object with the specified string and returns the new string. |
+| **29**     | public string[] Split(params char[] separator) Returns a string array that contains the substrings in the current string object, delimited by elements of a specified Unicode character array. |
+| **30**     | public string[] Split(char[] separator, int count) Returns a string array that contains the substrings in the current string object, delimited by elements of a specified Unicode character array. The int parameter specifies the maximum number of substrings to return. |
+| **31**     | public bool StartsWith(string value) Determines whether the beginning of this string instance matches the specified string.  |
+| **32**     | public char[] ToCharArray()Returns a Unicode character array with all the characters in the current string object. |
+| **33**     | public char[] ToCharArray(int startIndex, int length) Returns a Unicode character array with all the characters in the current string object, starting from the specified index and up to the specified length.|
+| **34**     | public string ToLower() Returns a copy of this string converted to lowercase. |
+| **35**     | public string ToUpper() Returns a copy of this string converted to uppercase. |
+| **36**     | public string Trim() Removes all leading and trailing white-space characters from the current String object. |
 
 ##### Examples
 The following example demonstrates some of the methods mentioned above −
@@ -623,59 +557,20 @@ When the above code is compiled and executed, it produces the following result �
 #### C# Type Conversion Methods
 C# provides the following built-in type conversion methods −
 
-| Sr.No. | Methods &amp; Description                                                     |
-|--------|-------------------------------------------------------------------------------|
-| 1      | ToBoolean
-Converts a type to a Boolean value, where possible.
-                |
-| 2      | ToByte
-Converts a type to a byte.
-                                            |
-| 3      | ToChar
-Converts a type to a single Unicode character, where possible.
-        |
-| 4      | ToDateTime
-Converts a type (integer or string type) to date-time structures.
- |
-| 5      | ToDecimal
-Converts a floating point or integer type to a decimal type.
-       |
-| 6      | ToDouble
-Converts a type to a double type.
-                                   |
-| 7      | ToInt16
-Converts a type to a 16-bit integer.
-                                 |
-| 8      | ToInt32
-Converts a type to a 32-bit integer.
-                                 |
-| 9      | ToInt64
-Converts a type to a 64-bit integer.
-                                 |
-| 10     | ToSbyte
-Converts a type to a signed byte type.
-                               |
-| 11     | ToSingle
-Converts a type to a small floating point number.
-                   |
-| 12     | ToString
-Converts a type to a string.
-                                        |
-| 13     | ToType
-Converts a type to a specified type.
-                                  |
-| 14     | ToUInt16
-Converts a type to an unsigned int type.
-                            |
-| 15     | ToUInt32
-Converts a type to an unsigned long type.
-                           |
-| 16     | ToUInt64
-Converts a type to an unsigned big integer.
-                         |
-
-
-
+| Sr.No. | Methods & Description  |
+|--------|-------------------------|
+| 1      | ToBoolean Converts a type to a Boolean value, where possible. |
+| 2      | ToByte Converts a type to a byte. |
+| 3      | ToChar Converts a type to a single Unicode character, where possible. |
+| 4      | ToDateTime Converts a type (integer or string type) to date-time structures. |
+| 5      | ToDecimal Converts a floating point or integer type to a decimal type. |
+| 6      | ToDouble Converts a type to a double type. |
+| 7      | ToInt16 Converts a type to a 16-bit integer. |
+| 8      | ToInt32 Converts a type to a 32-bit integer. |
+| 9      | ToInt64 Converts a type to a 64-bit integer. |
+| 10     | ToSbyte Converts a type to a signed byte type. |
+| 11     | ToSingle Converts a type to a small floating point number. |
+| 12     | ToString Converts a type to a string.|
 
 ### Coding Standards
 
@@ -1367,3 +1262,952 @@ Enter the second value:
 After method call, value of a : 7
 After method call, value of b : 8
 ```
+
+## Exception Handling in C#
+An exception is a problem that arises during the execution of a program. A C# exception is a response to an exceptional circumstance that arises while a program is running, such as an attempt to divide by zero.
+
+Exceptions provide a way to transfer control from one part of a program to another. C# exception handling is built upon four keywords: try, catch, finally, and throw.
+
+- try − A try block identifies a block of code for which particular exceptions is activated. It is followed by one or more catch blocks.
+- catch − A program catches an exception with an exception handler at the place in a program where you want to handle the problem. The catch keyword indicates the catching of an exception.
+- finally − The finally block is used to execute a given set of statements, whether an exception is thrown or not thrown. For example, if you open a file, it must be closed whether an exception is raised or not.
+- throw − A program throws an exception when a problem shows up. This is done using a throw keyword.
+
+### Syntax
+Assuming a block raises an exception, a method catches an exception using a combination of the try and catch keywords. A try/catch block is placed around the code that might generate an exception. Code within a try/catch block is referred to as protected code, and the syntax for using try/catch looks like the following −
+```
+try {
+   // statements causing exception
+} catch( ExceptionName e1 ) {
+   // error handling code
+} catch( ExceptionName e2 ) {
+   // error handling code
+} catch( ExceptionName eN ) {
+   // error handling code
+} finally {
+   // statements to be executed
+}
+```
+You can list down multiple catch statements to catch different type of exceptions in case your try block raises more than one exception in different situations.
+
+### Exception Classes in C#
+C# exceptions are represented by classes. The exception classes in C# are mainly directly or indirectly derived from the System.Exception class. Some of the exception classes derived from the System.Exception class are the System.ApplicationException and System.SystemException classes.
+
+The System.ApplicationException class supports exceptions generated by application programs. Hence the exceptions defined by the programmers should derive from this class.
+
+The System.SystemException class is the base class for all predefined system exception.
+
+The following table provides some of the predefined exception classes derived from the Sytem.SystemException class −
+![exceptions](imgs/exceptions.png
+
+
+### Handling Exceptions
+C# provides a structured solution to the exception handling in the form of try and catch blocks. Using these blocks the core program statements are separated from the error-handling statements.
+
+These error handling blocks are implemented using the try, catch, and finally keywords. Following is an example of throwing an exception when dividing by zero condition occurs −
+
+```
+using System;
+
+namespace ErrorHandlingApplication {
+   class DivNumbers {
+      int result;
+
+      DivNumbers() {
+         result = 0;
+      }
+      public void division(int num1, int num2) {
+         try {
+            result = num1 / num2;
+         } catch (DivideByZeroException e) {
+            Console.WriteLine("Exception caught: {0}", e);
+         } finally {
+            Console.WriteLine("Result: {0}", result);
+         }
+      }
+      static void Main(string[] args) {
+         DivNumbers d = new DivNumbers();
+         d.division(25, 0);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Exception caught: System.DivideByZeroException: Attempted to divide by zero.
+at ...
+Result: 0
+```
+
+### Creating User-Defined Exceptions
+You can also define your own exception. User-defined exception classes are derived from the Exception class. The following example demonstrates this −
+
+```
+using System;
+
+namespace UserDefinedException {
+   class TestTemperature {
+      static void Main(string[] args) {
+         Temperature temp = new Temperature();
+         try {
+            temp.showTemp();
+         } catch(TempIsZeroException e) {
+            Console.WriteLine("TempIsZeroException: {0}", e.Message);
+         }
+         Console.ReadKey();
+      }
+   }
+}
+public class TempIsZeroException: Exception {
+   public TempIsZeroException(string message): base(message) {
+   }
+}
+public class Temperature {
+   int temperature = 0;
+
+   public void showTemp() {
+
+      if(temperature == 0) {
+         throw (new TempIsZeroException("Zero Temperature found"));
+      } else {
+         Console.WriteLine("Temperature: {0}", temperature);
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+TempIsZeroException: Zero Temperature found
+```
+
+### Throwing Objects
+You can throw an object if it is either directly or indirectly derived from the System.Exception class. You can use a throw statement in the catch block to throw the present object as −
+```
+
+Catch(Exception e) {
+   ...
+   Throw e
+}
+```
+
+## Decision Making
+Decision making structures requires the programmer to specify one or more conditions to be evaluated or tested by the program, along with a statement or statements to be executed if the condition is determined to be true, and optionally, other statements to be executed if the condition is determined to be false.
+
+Following is the general form of a typical decision making structure found in most of the programming languages −
+![decision making](imgs/decision-making.png)
+
+C# provides following types of decision making statements
+
+1. if statement
+2. if...else statement
+3. nested if statements
+4. switch statement
+5. nested switch statements
+
+
+### if Statement
+An if statement consists of a boolean expression followed by one or more statements.
+
+#### Syntax
+The syntax of an if statement in C# is −
+```
+if(boolean_expression) {
+   /* statement(s) will execute if the boolean expression is true */
+}
+```
+
+If the boolean expression evaluates to true, then the block of code inside the if statement is executed. If boolean expression evaluates to false, then the first set of code after the end of the if statement(after the closing curly brace) is executed.
+![if statement](imgs/if-statement.png)
+
+#### Example
+
+```
+using System;
+
+namespace DecisionMaking {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int a = 10;
+
+         /* check the boolean condition using if statement */
+         if (a < 20) {
+            /* if condition is true then print the following */
+            Console.WriteLine("a is less than 20");
+         }
+         Console.WriteLine("value of a is : {0}", a);
+         Console.ReadLine();
+      }
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+```
+a is less than 20;
+value of a is : 10
+```
+
+### if...else statement
+An if statement can be followed by an optional else statement, which executes when the boolean expression is false.
+
+#### Syntax
+The syntax of an if...else statement in C# is −
+
+```
+if(boolean_expression) {
+   /* statement(s) will execute if the boolean expression is true */
+} else {
+   /* statement(s) will execute if the boolean expression is false */
+}
+```
+
+If the boolean expression evaluates to true, then the if block of code is executed, otherwise else block of code is executed.
+![ifelseflowdiagram](imgs/ifelseflowdiagram.png)
+
+#### Example
+```
+using System;
+
+namespace DecisionMaking {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int a = 100;
+
+         /* check the boolean condition */
+         if (a < 20) {
+            /* if condition is true then print the following */
+            Console.WriteLine("a is less than 20");
+         } else {
+            /* if condition is false then print the following */
+            Console.WriteLine("a is not less than 20");
+         }
+         Console.WriteLine("value of a is : {0}", a);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+a is not less than 20;
+value of a is : 100
+```
+### The if...else if...else Statement
+An if statement can be followed by an optional else if...else statement, which is very useful to test various conditions using single if...else if statement.
+
+When using if, else if, else statements there are few points to keep in mind.
+
+- An if can have zero or one else's and it must come after any else if's.
+- An if can have zero to many else if's and they must come before the else.
+- Once an else if succeeds, none of the remaining else if's or else's will be tested.
+
+#### Syntax
+The syntax of an if...else if...else statement in C# is −
+
+```
+if(boolean_expression 1) {
+   /* Executes when the boolean expression 1 is true */
+}
+else if( boolean_expression 2) {
+   /* Executes when the boolean expression 2 is true */
+}
+else if( boolean_expression 3) {
+   /* Executes when the boolean expression 3 is true */
+} else {
+   /* executes when the none of the above condition is true */
+}
+```
+
+#### Example
+```
+using System;
+
+namespace DecisionMaking {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int a = 100;
+
+         /* check the boolean condition */
+         if (a == 10) {
+            /* if condition is true then print the following */
+            Console.WriteLine("Value of a is 10");
+         }
+         else if (a == 20) {
+            /* if else if condition is true */
+            Console.WriteLine("Value of a is 20");
+         }
+         else if (a == 30) {
+            /* if else if condition is true  */
+            Console.WriteLine("Value of a is 30");
+         } else {
+            /* if none of the conditions is true */
+            Console.WriteLine("None of the values is matching");
+         }
+         Console.WriteLine("Exact value of a is: {0}", a);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+```
+None of the values is matching
+Exact value of a is: 100
+```
+
+### Nested if statements
+It is always legal in C# to nest if-else statements, which means you can use one if or else if statement inside another if or else if statement(s).
+
+#### Syntax
+The syntax for a nested if statement is as follows −
+```
+if( boolean_expression 1) {
+   /* Executes when the boolean expression 1 is true */
+   if(boolean_expression 2) {
+      /* Executes when the boolean expression 2 is true */
+   }
+}
+```
+You can nest else if...else in the similar way as you have nested if statement.
+
+#### Example
+```
+using System;
+
+namespace DecisionMaking {
+   class Program {
+      static void Main(string[] args) {
+         //* local variable definition */
+         int a = 100;
+         int b = 200;
+
+         /* check the boolean condition */
+         if (a == 100) {
+
+            /* if condition is true then check the following */
+            if (b == 200) {
+               /* if condition is true then print the following */
+               Console.WriteLine("Value of a is 100 and b is 200");
+            }
+         }
+         Console.WriteLine("Exact value of a is : {0}", a);
+         Console.WriteLine("Exact value of b is : {0}", b);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+```
+Value of a is 100 and b is 200
+Exact value of a is : 100
+Exact value of b is : 200
+```
+
+### Switch statement
+A switch statement allows a variable to be tested for equality against a list of values. Each value is called a case, and the variable being switched on is checked for each switch case.
+
+#### Syntax
+The syntax for a switch statement in C# is as follows −
+```
+switch(expression) {
+   case constant-expression1  :
+      statement(s);
+      break;
+   case constant-expression2  :
+   case constant-expression3  :
+      statement(s);
+      break;
+
+   /* you can have any number of case statements */
+   default : /* Optional */
+   statement(s);
+}
+```
+
+The following rules apply to a switch statement −
+
+- The expression used in a switch statement must have an integral or enumerated type, or be of a class type in which the class has a single conversion function to an integral or enumerated type.
+- You can have any number of case statements within a switch. Each case is followed by the value to be compared to and a colon.
+- The constant-expression for a case must be the same data type as the variable in the switch, and it must be a constant or a literal.
+- When the variable being switched on is equal to a case, the statements following that case will execute until a break statement is reached.
+- When a break statement is reached, the switch terminates, and the flow of control jumps to the next line following the switch statement.
+- Not every case needs to contain a break. If no break appears, then it will raise a compile time error.
+- A switch statement can have an optional default case, which must appear at the end of the switch. The default case can be used for performing a task when none of the cases is true.
+
+#### Flow diagram
+![switch flow diagram](imgs/switch-flow-diagram.png)
+
+#### Example
+```
+using System;
+
+namespace DecisionMaking {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         char grade = 'B';
+
+         switch (grade) {
+            case 'A':
+               Console.WriteLine("Excellent!");
+               break;
+            case 'B':
+            case 'C':
+               Console.WriteLine("Well done");
+               break;
+            case 'D':
+               Console.WriteLine("You passed");
+               break;
+            case 'F':
+               Console.WriteLine("Better try again");
+               break;
+               default:
+            Console.WriteLine("Invalid grade");
+               break;
+         }
+         Console.WriteLine("Your grade is  {0}", grade);
+         Console.ReadLine();
+      }
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+
+```
+Well done
+Your grade is B
+```
+
+### Nested Switch
+It is possible to have a switch as part of the statement sequence of an outer switch. Even if the case constants of the inner and outer switch contain common values, no conflicts will arise.
+
+#### Syntax
+The syntax for a nested switch statement is as follows −
+
+```
+switch(ch1) {
+   case 'A':
+   Console.WriteLine("This A is part of outer switch" );
+
+   switch(ch2) {
+      case 'A':
+         Console.WriteLine("This A is part of inner switch" );
+         break;
+      case 'B': /* inner B case code */
+   }
+   break;
+   case 'B': /* outer B case code */
+}
+```
+
+#### Example
+```
+using System;
+
+namespace DecisionMaking {
+   class Program {
+      static void Main(string[] args) {
+         int a = 100;
+         int b = 200;
+
+         switch (a) {
+            case 100:
+            Console.WriteLine("This is part of outer switch ");
+
+            switch (b) {
+               case 200:
+               Console.WriteLine("This is part of inner switch ");
+               break;
+            }
+            break;
+         }
+         Console.WriteLine("Exact value of a is : {0}", a);
+         Console.WriteLine("Exact value of b is : {0}", b);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+This is part of outer switch
+This is part of inner switch
+Exact value of a is : 100
+Exact value of b is : 200
+
+```
+
+### The ? : Operator
+We have covered conditional operator ? : in previous chapter which can be used to replace if...else statements. It has the following general form −
+
+```
+Exp1 ? Exp2 : Exp3;
+```
+
+Where Exp1, Exp2, and Exp3 are expressions. Notice the use and placement of the colon.
+
+The value of a ? expression is determined as follows: Exp1 is evaluated. If it is true, then Exp2 is evaluated and becomes the value of the entire ? expression. If Exp1 is false, then Exp3 is evaluated and its value becomes the value of the expression.
+
+### TryParse Methods in C#
+Convert a string representation of number to an integer, using the int.TryParse method in C#. If the string cannot be converted, then the int.TryParse method returns false i.e. a Boolean value.
+
+Let’s say you have a string representation of a number.
+```
+string myStr = "12";
+```
+
+Now to convert it to an integer, use the int.TryParse(). It will get converted and will return True.
+```
+int.TryParse(myStr, out a);
+```
+
+#### Example
+```
+using System.IO;
+using System;
+class Program {
+   static void Main() {
+      bool res;
+      int a;
+      string myStr = "12";
+      res = int.TryParse(myStr, out a);
+      Console.WriteLine("String is a numeric representation: "+res);
+   }
+}
+```
+Output
+```
+String is a numeric representation: True
+```
+
+## Loops in C#
+There may be a situation, when you need to execute a block of code several number of times. In general, the statements are executed sequentially: The first statement in a function is executed first, followed by the second, and so on.
+
+Programming languages provide various control structures that allow for more complicated execution paths.
+
+A loop statement allows us to execute a statement or a group of statements multiple times and following is the general from of a loop statement in most of the programming languages −
+![loop flow diagram](imgs/loop-flow-diagram.png)
+
+C# provides following types of loop to handle looping requirements
+
+1. while loop
+2. for loop
+3. do...while loop
+4. foreach loop
+
+### While Loop
+A while loop statement in C# repeatedly executes a target statement as long as a given condition is true.
+
+#### Syntax
+The syntax of a while loop in C# is −
+```
+while(condition) {
+   statement(s);
+}
+```
+Here, statement(s) may be a single statement or a block of statements. The condition may be any expression, and true is any non-zero value. The loop iterates while the condition is true.
+
+When the condition becomes false, program control passes to the line immediately following the loop.
+
+#### Flow Diagram
+![while loop flow diagram](imgs/while-loop-flow-diagram.png)
+
+Here, key point of the while loop is that the loop might not ever run. When the condition is tested and the result is false, the loop body is skipped and the first statement after the while loop is executed.
+
+#### Example
+```
+using System;
+
+namespace Loops {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int a = 10;
+
+         /* while loop execution */
+         while (a < 20) {
+            Console.WriteLine("value of a: {0}", a);
+            a++;
+         }
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 15
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+```
+
+### for loop
+A for loop is a repetition control structure that allows you to efficiently write a loop that needs to execute a specific number of times.
+
+#### Syntax
+The syntax of a for loop in C# is −
+
+```
+for ( init; condition; increment ) {
+   statement(s);
+}
+```
+
+Here is the flow of control in a for loop −
+
+- The init step is executed first, and only once. This step allows you to declare and initialize any loop control variables. You are not required to put a statement here, as long as a semicolon appears.
+- Next, the condition is evaluated. If it is true, the body of the loop is executed. If it is false, the body of the loop does not execute and flow of control jumps to the next statement just after the for loop.
+- After the body of the for loop executes, the flow of control jumps back up to the increment statement. This statement allows you to update any loop control variables. This statement can be left blank, as long as a semicolon appears after the condition.
+- The condition is now evaluated again. If it is true, the loop executes and the process repeats itself (body of loop, then increment step, and then again testing for a condition). After the condition becomes false, the for loop terminates.
+
+#### Flow Diagram
+![for loop flow diagram](imgs/for-loop-flow-diagram.png)
+
+#### Example
+```
+using System;
+
+namespace Loops {
+   class Program {
+      static void Main(string[] args) {
+
+         /* for loop execution */
+         for (int a = 10; a < 20; a = a + 1) {
+            Console.WriteLine("value of a: {0}", a);
+         }
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 15
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+```
+
+### do...while Loop
+Unlike for and while loops, which test the loop condition at the start of the loop, the do...while loop checks its condition at the end of the loop.
+
+A do...while loop is similar to a while loop, except that a do...while loop is guaranteed to execute at least one time.
+
+#### Syntax
+The syntax of a do...while loop in C# is −
+
+```
+do {
+   statement(s);
+} while( condition );
+```
+
+Notice that the conditional expression appears at the end of the loop, so the statement(s) in the loop execute once before the condition is tested.
+
+If the condition is true, the flow of control jumps back up to do, and the statement(s) in the loop execute again. This process repeats until the given condition becomes false.
+
+#### Flow Diagram
+![dowhile loop flow diagram](imgs/dowhile-loop-flow-diagram.png)
+
+#### Example
+```
+using System;
+
+namespace Loops {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int a = 10;
+
+         /* do loop execution */
+         do {
+            Console.WriteLine("value of a: {0}", a);
+            a = a + 1;
+         }
+         while (a < 20);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+```
+value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 15
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+```
+
+### Nested Loop
+C# allows to use one loop inside another loop. Following section shows few examples to illustrate the concept.
+
+####Syntax
+The syntax for a nested for loop statement in C# is as follows −
+```
+
+for ( init; condition; increment ) {
+   for ( init; condition; increment ) {
+      statement(s);
+   }
+   statement(s);
+}
+```
+
+The syntax for a nested while loop statement in C# is as follows −
+
+```
+while(condition) {
+   while(condition) {
+      statement(s);
+   }
+   statement(s);
+}
+```
+The syntax for a nested do...while loop statement in C# is as follows −
+```
+do {
+   statement(s);
+   do {
+      statement(s);
+   }
+   while( condition );
+}
+while( condition );
+```
+
+
+
+__A final note on loop nesting is that you can put any type of loop inside of any other type of loop. For example a for loop can be inside a while loop or vice versa.__
+
+#### Example
+The following program uses a nested for loop to find the prime numbers from 2 to 100 −
+
+```
+using System;
+
+namespace Loops {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int i, j;
+
+         for (i = 2; i < 100; i++) {
+            for (j = 2; j <= (i / j); j++)
+            if ((i % j) == 0) break; // if factor found, not prime
+            if (j > (i / j)) Console.WriteLine("{0} is prime", i);
+         }
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+2 is prime
+3 is prime
+5 is prime
+7 is prime
+11 is prime
+13 is prime
+17 is prime
+19 is prime
+23 is prime
+29 is prime
+31 is prime
+37 is prime
+41 is prime
+43 is prime
+47 is prime
+53 is prime
+59 is prime
+61 is prime
+67 is prime
+71 is prime
+73 is prime
+79 is prime
+83 is prime
+89 is prime
+97 is prime
+```
+
+### Loop Control Statements
+Loop control statements change execution from its normal sequence. When execution leaves a scope, all automatic objects that were created in that scope are destroyed.
+
+C# provides the following control statements.
+Sr. No  |  Control Statement & Description
+--|--
+1  |  break - Terminates the loop or switch statement and transfers execution to the statement immediately following the loop or switch.  |  
+2 | continue - Causes the loop to skip the remainder of its body and immediately retest its condition prior to reiterating.  |  
+
+#### break statement
+The break statement in C# has following two usage −
+
+- When the break statement is encountered inside a loop, the loop is immediately terminated and program control resumes at the next statement following the loop.
+- It can be used to terminate a case in the switch statement.
+
+If you are using nested loops (i.e., one loop inside another loop), the break statement will stop the execution of the innermost loop and start executing the next line of code after the block.
+
+##### Syntax
+The syntax for a break statement in C# is as follows −
+
+```
+break;
+```
+
+
+##### Flow Diagram
+![break flow diagram](imgs/break-flow-diagram.png)
+
+##### Example
+```
+using System;
+
+namespace Loops {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int a = 10;
+
+         /* while loop execution */
+         while (a < 20) {
+            Console.WriteLine("value of a: {0}", a);
+            a++;
+
+            if (a > 15) {
+               /* terminate the loop using break statement */
+               break;
+            }
+         }
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+```
+value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 15
+```
+
+#### continue statement
+The continue statement in C# works somewhat like the break statement. Instead of forcing termination, however, continue forces the next iteration of the loop to take place, skipping any code in between.
+
+For the for loop, continue statement causes the conditional test and increment portions of the loop to execute. For the while and do...while loops, continue statement causes the program control passes to the conditional tests.
+
+##### Syntax
+The syntax for a continue statement in C# is as follows −
+
+```
+continue;
+```
+
+##### Flow Diagram
+![continue flow diagram](imgs/continue-flow-diagram.png)
+
+##### Example
+```
+using System;
+
+namespace Loops {
+   class Program {
+      static void Main(string[] args) {
+         /* local variable definition */
+         int a = 10;
+
+         /* do loop execution */
+         do {
+            if (a == 15) {
+               /* skip the iteration */
+               a = a + 1;
+               continue;
+            }
+            Console.WriteLine("value of a: {0}", a);
+            a++;
+         }
+         while (a < 20);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+```
+
+### Infinite Loop
+Infinite Loop
+A loop becomes infinite loop if a condition never becomes false. The for loop is traditionally used for this purpose. Since none of the three expressions that form the for loop are required, you can make an endless loop by leaving the conditional expression empty.
+
+#### Example
+```
+using System;
+
+namespace Loops {
+   class Program {
+      static void Main(string[] args) {
+         for (; ; ) {
+            Console.WriteLine("Hey! I am Trapped");
+         }
+      }
+   }
+}
+```
+
+When the conditional expression is absent, it is assumed to be true. You may have an initialization and increment expression, but programmers more commonly use the for(;;) construct to signify an infinite loop.
