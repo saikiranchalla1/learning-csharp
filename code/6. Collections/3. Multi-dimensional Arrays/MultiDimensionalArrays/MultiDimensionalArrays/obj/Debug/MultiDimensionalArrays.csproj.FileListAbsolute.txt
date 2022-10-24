@@ -1,0 +1,7 @@
+D:\Documents\Business\Panjutorials\Csharp Tutorial\Review\MultiDimensionalArrays\MultiDimensionalArrays\bin\Debug\MultiDimensionalArrays.exe.config
+D:\Documents\Business\Panjutorials\Csharp Tutorial\Review\MultiDimensionalArrays\MultiDimensionalArrays\bin\Debug\MultiDimensionalArrays.exe
+D:\Documents\Business\Panjutorials\Csharp Tutorial\Review\MultiDimensionalArrays\MultiDimensionalArrays\bin\Debug\MultiDimensionalArrays.pdb
+D:\Documents\Business\Panjutorials\Csharp Tutorial\Review\MultiDimensionalArrays\MultiDimensionalArrays\obj\Debug\MultiDimensionalArrays.csprojResolveAssemblyReference.cache
+D:\Documents\Business\Panjutorials\Csharp Tutorial\Review\MultiDimensionalArrays\MultiDimensionalArrays\obj\Debug\MultiDimensionalArrays.csproj.CoreCompileInputs.cache
+D:\Documents\Business\Panjutorials\Csharp Tutorial\Review\MultiDimensionalArrays\MultiDimensionalArrays\obj\Debug\MultiDimensionalArrays.exe
+D:\Documents\Business\Panjutorials\Csharp Tutorial\Review\MultiDimensionalArrays\MultiDimensionalArrays\obj\Debug\MultiDimensionalArrays.pdb

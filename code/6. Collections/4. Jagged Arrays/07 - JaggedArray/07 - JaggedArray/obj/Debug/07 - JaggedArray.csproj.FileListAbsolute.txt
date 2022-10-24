@@ -1,0 +1,7 @@
+c:\users\denis panjuta\source\repos\07 - JaggedArray\07 - JaggedArray\bin\Debug\07 - JaggedArray.exe.config
+c:\users\denis panjuta\source\repos\07 - JaggedArray\07 - JaggedArray\bin\Debug\07 - JaggedArray.exe
+c:\users\denis panjuta\source\repos\07 - JaggedArray\07 - JaggedArray\bin\Debug\07 - JaggedArray.pdb
+c:\users\denis panjuta\source\repos\07 - JaggedArray\07 - JaggedArray\obj\Debug\07 - JaggedArray.csprojResolveAssemblyReference.cache
+c:\users\denis panjuta\source\repos\07 - JaggedArray\07 - JaggedArray\obj\Debug\07 - JaggedArray.csproj.CoreCompileInputs.cache
+c:\users\denis panjuta\source\repos\07 - JaggedArray\07 - JaggedArray\obj\Debug\07 - JaggedArray.exe
+c:\users\denis panjuta\source\repos\07 - JaggedArray\07 - JaggedArray\obj\Debug\07 - JaggedArray.pdb

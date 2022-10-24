@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ndv2hwR+SSZed7sccG55SZ/9Jz4b2DsrzYAYnNpQyVvc2KmBW2ssLR4yN/XClhl4UoxXCyP4wVJ75P0Dy1aXsA==",
+  "success": true,
+  "projectFilePath": "/Users/schalla/Library/CloudStorage/OneDrive-Adobe/Sai Kiran/Projects/learning-csharp/code/6. Collections/7. Hashtables/HashTables/HashTables/HashTables.csproj",
+  "expectedPackageFiles": [
+    "/Users/schalla/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "/Users/schalla/.nuget/packages/microsoft.netcore.app.host.osx-x64/5.0.17/microsoft.netcore.app.host.osx-x64.5.0.17.nupkg.sha512",
+    "/Users/schalla/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

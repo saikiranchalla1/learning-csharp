@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "CfTK3XQsLzRD/Xjb8phZcFubOuyUvmlRQZyHrceh0j8YNdU2CsNvPQMZQJ65+blkeVG8MuUKdTj+b82/37A5UA==",
+  "success": true,
+  "projectFilePath": "/Users/schalla/Library/CloudStorage/OneDrive-Adobe/Sai Kiran/Projects/learning-csharp/code/5. Object Oriented Programming/5. Access Modifiers/AccessModifiers/AccessModifiers/AccessModifiers.csproj",
+  "expectedPackageFiles": [
+    "/Users/schalla/.nuget/packages/microsoft.aspnetcore.app.ref/5.0.0/microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "/Users/schalla/.nuget/packages/microsoft.netcore.app.host.osx-x64/5.0.17/microsoft.netcore.app.host.osx-x64.5.0.17.nupkg.sha512",
+    "/Users/schalla/.nuget/packages/microsoft.netcore.app.ref/5.0.0/microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

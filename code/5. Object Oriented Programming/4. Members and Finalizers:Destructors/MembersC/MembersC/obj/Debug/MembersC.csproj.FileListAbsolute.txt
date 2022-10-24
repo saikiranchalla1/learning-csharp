@@ -1,0 +1,7 @@
+C:\Users\Denis Panjuta\source\repos\MembersC\MembersC\bin\Debug\MembersC.exe.config
+C:\Users\Denis Panjuta\source\repos\MembersC\MembersC\bin\Debug\MembersC.exe
+C:\Users\Denis Panjuta\source\repos\MembersC\MembersC\bin\Debug\MembersC.pdb
+C:\Users\Denis Panjuta\source\repos\MembersC\MembersC\obj\Debug\MembersC.csprojResolveAssemblyReference.cache
+C:\Users\Denis Panjuta\source\repos\MembersC\MembersC\obj\Debug\MembersC.csproj.CoreCompileInputs.cache
+C:\Users\Denis Panjuta\source\repos\MembersC\MembersC\obj\Debug\MembersC.exe
+C:\Users\Denis Panjuta\source\repos\MembersC\MembersC\obj\Debug\MembersC.pdb

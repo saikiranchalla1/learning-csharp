@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{CE1B1546-937B-41BC-9D3F-FE613975FE51}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Dictionaries FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dictionaries/Program.cs">
+    <Files>
+      <File FileName="../../../../../../../../../../OneDrive - Adobe/Sai Kiran/Projects/learning-csharp/code/6. Collections/8. Dictionaries /Dictionaries/Dictionaries/Program.cs" Line="19" Column="13" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Dictionaries" expanded="True">
+            <Node name="Dictionaries" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>

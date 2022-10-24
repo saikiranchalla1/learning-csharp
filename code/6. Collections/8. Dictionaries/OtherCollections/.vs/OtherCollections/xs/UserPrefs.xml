@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{B0F16FD7-8A52-4F02-ABD2-0DC680F2B8A5}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.OtherCollections PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="OtherCollections/Program.cs">
+    <Files>
+      <File FileName="../../../../../../../../../../OneDrive - Adobe/Sai Kiran/Projects/learning-csharp/code/6. Collections/8. Dictionaries/OtherCollections/OtherCollections/Program.cs" Line="144" Column="10" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="OtherCollections" expanded="True">
+            <Node name="OtherCollections" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>

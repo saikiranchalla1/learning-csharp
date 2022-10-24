@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/schalla/.dotnet/store/|arch|/|tfm|",
+      "/Users/schalla/.nuget/packages"
+    ]
+  }
+}

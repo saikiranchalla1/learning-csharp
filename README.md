@@ -1,3 +1,140 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Programming with C#](#programming-with-c)
+  - [Installing Visual Studio Community](#installing-visual-studio-community)
+    - [Windows Users](#windows-users)
+  - [Hello World!](#hello-world)
+    - [Windows](#windows)
+    - [Mac Users](#mac-users)
+    - [Deep Dive into the Hello World](#deep-dive-into-the-hello-world)
+  - [.NET Core vs .NET Framework](#net-core-vs-net-framework)
+  - [DataTypes and Variables](#datatypes-and-variables)
+    - [Value Types](#value-types)
+      - [Integral types](#integral-types)
+        - [Integer literals](#integer-literals)
+      - [Floating-point Types](#floating-point-types)
+    - [The string type](#the-string-type)
+      - [Creating a String object](#creating-a-string-object)
+      - [String literals](#string-literals)
+      - [Properties of the String Class](#properties-of-the-string-class)
+      - [Methods of the String class](#methods-of-the-string-class)
+        - [Examples](#examples)
+          - [Comparing Strings](#comparing-strings)
+          - [String Contains String](#string-contains-string)
+          - [Getting a Substring](#getting-a-substring)
+          - [Joining Strings](#joining-strings)
+    - [Type Conversion](#type-conversion)
+      - [C# Type Conversion Methods](#c-type-conversion-methods)
+    - [Coding Standards](#coding-standards)
+    - [Value vs reference types](#value-vs-reference-types)
+    - [Console Methods](#console-methods)
+    - [Constants](#constants)
+    - [Operators](#operators)
+      - [Arithmetic Operators](#arithmetic-operators)
+      - [Relational Operators](#relational-operators)
+      - [Logical Operators](#logical-operators)
+      - [Bitwise Operators](#bitwise-operators)
+      - [Assignment Operators](#assignment-operators)
+      - [Miscellaneous Operators](#miscellaneous-operators)
+      - [Operator Precedence in C#](#operator-precedence-in-c)
+    - [Challenges](#challenges)
+      - [Challenge 1 – String and its methods](#challenge-1--string-and-its-methods)
+      - [Challenge String and its methods 2](#challenge-string-and-its-methods-2)
+  - [Functions/Methods - Code Reuse](#functionsmethods---code-reuse)
+    - [Methods in C#](#methods-in-c)
+      - [Defining Methods in C#](#defining-methods-in-c)
+      - [Calling Methods in C#](#calling-methods-in-c)
+      - [Recursive Method Call](#recursive-method-call)
+      - [Passing Parameters to a Method](#passing-parameters-to-a-method)
+        - [Value Parameters](#value-parameters)
+        - [Reference Parameters](#reference-parameters)
+        - [Output Parameters](#output-parameters)
+  - [Exception Handling in C#](#exception-handling-in-c)
+    - [Syntax](#syntax)
+    - [Exception Classes in C#](#exception-classes-in-c)
+    - [Handling Exceptions](#handling-exceptions)
+    - [Creating User-Defined Exceptions](#creating-user-defined-exceptions)
+    - [Throwing Objects](#throwing-objects)
+  - [Decision Making](#decision-making)
+    - [if Statement](#if-statement)
+      - [Syntax](#syntax-1)
+      - [Example](#example)
+    - [if...else statement](#ifelse-statement)
+      - [Syntax](#syntax-2)
+      - [Example](#example-1)
+    - [The if...else if...else Statement](#the-ifelse-ifelse-statement)
+      - [Syntax](#syntax-3)
+      - [Example](#example-2)
+    - [Nested if statements](#nested-if-statements)
+      - [Syntax](#syntax-4)
+      - [Example](#example-3)
+    - [Switch statement](#switch-statement)
+      - [Syntax](#syntax-5)
+      - [Flow diagram](#flow-diagram)
+      - [Example](#example-4)
+    - [Nested Switch](#nested-switch)
+      - [Syntax](#syntax-6)
+      - [Example](#example-5)
+    - [The ? : Operator](#the---operator)
+    - [TryParse Methods in C#](#tryparse-methods-in-c)
+      - [Example](#example-6)
+  - [Loops in C#](#loops-in-c)
+    - [While Loop](#while-loop)
+      - [Syntax](#syntax-7)
+      - [Flow Diagram](#flow-diagram)
+      - [Example](#example-7)
+    - [for loop](#for-loop)
+      - [Syntax](#syntax-8)
+      - [Flow Diagram](#flow-diagram-1)
+      - [Example](#example-8)
+    - [do...while Loop](#dowhile-loop)
+      - [Syntax](#syntax-9)
+      - [Flow Diagram](#flow-diagram-2)
+      - [Example](#example-9)
+    - [Nested Loop](#nested-loop)
+      - [Example](#example-10)
+    - [Loop Control Statements](#loop-control-statements)
+      - [break statement](#break-statement)
+        - [Syntax](#syntax-10)
+        - [Flow Diagram](#flow-diagram-3)
+        - [Example](#example-11)
+      - [continue statement](#continue-statement)
+        - [Syntax](#syntax-11)
+        - [Flow Diagram](#flow-diagram-4)
+        - [Example](#example-12)
+    - [Infinite Loop](#infinite-loop)
+      - [Example](#example-13)
+  - [Encapsulation](#encapsulation)
+    - [Public Access Specifier](#public-access-specifier)
+    - [Private Access Specifier](#private-access-specifier)
+    - [Protected Access Specifier](#protected-access-specifier)
+    - [Internal Access Specifier](#internal-access-specifier)
+    - [Protected Internal Access Specifier](#protected-internal-access-specifier)
+  - [Nullables](#nullables)
+    - [The Null Coalescing Operator (??)](#the-null-coalescing-operator-)
+  - [Object Oriented Programming](#object-oriented-programming)
+    - [Classes](#classes)
+      - [Defining a Class](#defining-a-class)
+    - [Member Functions and Encapsulation](#member-functions-and-encapsulation)
+    - [C# Constructors](#c-constructors)
+    - [C# Destructors](#c-destructors)
+    - [Static Members of a C# Class](#static-members-of-a-c-class)
+    - [Inheritance](#inheritance)
+      - [Base and Derived Classes](#base-and-derived-classes)
+      - [Initializing Base Class](#initializing-base-class)
+      - [Multiple Inheritance in C#](#multiple-inheritance-in-c)
+    - [Polymorphism](#polymorphism)
+      - [Static Polymorphism](#static-polymorphism)
+        - [Function Overloading](#function-overloading)
+      - [Dynamic Polymorphism](#dynamic-polymorphism)
+    - [Operator Overloading](#operator-overloading)
+      - [Implementing the Operator Overloading](#implementing-the-operator-overloading)
+        - [Overloadable and Non-Overloadable Operators](#overloadable-and-non-overloadable-operators)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Programming with C#
 ## Installing Visual Studio Community
 Download and install Visual Studio Community Edition from [here](https://visualstudio.microsoft.com/).
@@ -2211,3 +2348,1292 @@ namespace Loops {
 ```
 
 When the conditional expression is absent, it is assumed to be true. You may have an initialization and increment expression, but programmers more commonly use the for(;;) construct to signify an infinite loop.
+
+## Encapsulation
+Encapsulation is defined 'as the process of enclosing one or more items within a physical or logical package'. Encapsulation, in object oriented programming methodology, prevents access to implementation details.
+
+Abstraction and encapsulation are related features in object oriented programming. Abstraction allows making relevant information visible and encapsulation enables a programmer to implement the desired level of abstraction.
+
+Encapsulation is implemented by using access specifiers. An access specifier defines the scope and visibility of a class member. C# supports the following access specifiers −
+
+- Public
+- Private
+- Protected
+- Internal
+- Protected internal
+
+### Public Access Specifier
+Public access specifier allows a class to expose its member variables and member functions to other functions and objects. Any public member can be accessed from outside the class.
+
+The following example illustrates this −
+
+```
+using System;
+
+namespace RectangleApplication {
+   class Rectangle {
+      //member variables
+      public double length;
+      public double width;
+      
+      public double GetArea() {
+         return length * width;
+      }
+      public void Display() {
+         Console.WriteLine("Length: {0}", length);
+         Console.WriteLine("Width: {0}", width);
+         Console.WriteLine("Area: {0}", GetArea());
+      }
+   }//end class Rectangle
+   
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         Rectangle r = new Rectangle();
+         r.length = 4.5;
+         r.width = 3.5;
+         r.Display();
+         Console.ReadLine();
+      }
+   }
+}
+
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Length: 4.5
+Width: 3.5
+Area: 15.75
+```
+In the preceding example, the member variables length and width are declared public, so they can be accessed from the function Main() using an instance of the Rectangle class, named r.
+
+The member function Display() and GetArea() can also access these variables directly without using any instance of the class.
+
+The member functions Display() is also declared public, so it can also be accessed from Main() using an instance of the Rectangle class, named r.
+
+
+### Private Access Specifier
+Private access specifier allows a class to hide its member variables and member functions from other functions and objects. Only functions of the same class can access its private members. Even an instance of a class cannot access its private members.
+
+The following example illustrates this −
+```
+
+using System;
+
+namespace RectangleApplication {
+   class Rectangle {
+      //member variables
+      private double length;
+      private double width;
+      
+      public void Acceptdetails() {
+         Console.WriteLine("Enter Length: ");
+         length = Convert.ToDouble(Console.ReadLine());
+         Console.WriteLine("Enter Width: ");
+         width = Convert.ToDouble(Console.ReadLine());
+      }
+      public double GetArea() {
+         return length * width;
+      }
+      public void Display() {
+         Console.WriteLine("Length: {0}", length);
+         Console.WriteLine("Width: {0}", width);
+         Console.WriteLine("Area: {0}", GetArea());
+      }
+   }//end class Rectangle
+   
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         Rectangle r = new Rectangle();
+         r.Acceptdetails();
+         r.Display();
+         Console.ReadLine();
+      }
+   }
+}
+
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Enter Length:
+4.4
+Enter Width:
+3.3
+Length: 4.4
+Width: 3.3
+Area: 14.52
+
+```
+
+In the preceding example, the member variables length and width are declared private, so they cannot be accessed from the function Main(). The member functions AcceptDetails() and Display() can access these variables. Since the member functions AcceptDetails() and Display() are declared public, they can be accessed from Main() using an instance of the Rectangle class, named r.
+
+
+
+### Protected Access Specifier
+Protected access specifier allows a child class to access the member variables and member functions of its base class. This way it helps in implementing inheritance. We will discuss this in more details in the inheritance chapter.
+
+
+### Internal Access Specifier
+Internal access specifier allows a class to expose its member variables and member functions to other functions and objects in the current assembly. In other words, any member with internal access specifier can be accessed from any class or method defined within the application in which the member is defined.
+
+The following program illustrates this −
+
+```
+using System;
+
+namespace RectangleApplication {
+   class Rectangle {
+      //member variables
+      internal double length;
+      internal double width;
+      
+      double GetArea() {
+         return length * width;
+      }
+      public void Display() {
+         Console.WriteLine("Length: {0}", length);
+         Console.WriteLine("Width: {0}", width);
+         Console.WriteLine("Area: {0}", GetArea());
+      }
+   }//end class Rectangle
+   
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         Rectangle r = new Rectangle();
+         r.length = 4.5;
+         r.width = 3.5;
+         r.Display();
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Length: 4.5
+Width: 3.5
+Area: 15.75
+```
+In the preceding example, notice that the member function GetArea() is not declared with any access specifier. Then what would be the default access specifier of a class member if we don't mention any? It is private.
+
+
+### Protected Internal Access Specifier
+The protected internal access specifier allows a class to hide its member variables and member functions from other class objects and functions, except a child class within the same application. This is also used while implementing inheritance.
+
+
+## Nullables
+
+C# provides a special data types, the nullable types, to which you can assign normal range of values as well as null values.
+
+For example, you can store any value from -2,147,483,648 to 2,147,483,647 or null in a Nullable<Int32> variable. Similarly, you can assign true, false, or null in a Nullable<bool> variable. Syntax for declaring a nullable type is as follows −
+
+```
+< data_type> ? <variable_name> = null;
+```
+
+
+The following example demonstrates use of nullable data types −
+
+
+```
+using System;
+
+namespace CalculatorApplication {
+   class NullablesAtShow {
+      static void Main(string[] args) {
+         int? num1 = null;
+         int? num2 = 45;
+         
+         double? num3 = new double?();
+         double? num4 = 3.14157;
+         
+         bool? boolval = new bool?();
+
+         // display the values
+         Console.WriteLine("Nullables at Show: {0}, {1}, {2}, {3}", num1, num2, num3, num4);
+         Console.WriteLine("A Nullable boolean value: {0}", boolval);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Nullables at Show: , 45,  , 3.14157
+A Nullable boolean value:
+```
+
+### The Null Coalescing Operator (??)
+The null coalescing operator is used with the nullable value types and reference types. It is used for converting an operand to the type of another nullable (or not) value type operand, where an implicit conversion is possible.
+
+If the value of the first operand is null, then the operator returns the value of the second operand, otherwise it returns the value of the first operand. The following example explains this −
+
+```
+using System;
+
+namespace CalculatorApplication {
+   class NullablesAtShow {
+      static void Main(string[] args) {
+         double? num1 = null;
+         double? num2 = 3.14157;
+         double num3;
+         
+         num3 = num1 ?? 5.34;      
+         Console.WriteLine(" Value of num3: {0}", num3);
+         
+         num3 = num2 ?? 5.34;
+         Console.WriteLine(" Value of num3: {0}", num3);
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Value of num3: 5.34
+Value of num3: 3.14157
+```
+
+
+## Object Oriented Programming
+### Classes
+When you define a class, you define a blueprint for a data type. This does not actually define any data, but it does define what the class name means. That is, what an object of the class consists of and what operations can be performed on that object. Objects are instances of a class. The methods and variables that constitute a class are called members of the class.
+
+#### Defining a Class
+A class definition starts with the keyword class followed by the class name; and the class body enclosed by a pair of curly braces. Following is the general form of a class definition −
+```
+<access specifier> class  class_name {
+   // member variables
+   <access specifier> <data type> variable1;
+   <access specifier> <data type> variable2;
+   ...
+   <access specifier> <data type> variableN;
+   // member methods
+   <access specifier> <return type> method1(parameter_list) {
+      // method body
+   }
+   <access specifier> <return type> method2(parameter_list) {
+      // method body
+   }
+   ...
+   <access specifier> <return type> methodN(parameter_list) {
+      // method body
+   }
+}
+```
+
+Note −
+
+- Access specifiers specify the access rules for the members as well as the class itself. If not mentioned, then the default access specifier for a class type is internal. Default access for the members is private.
+- 
+- Data type specifies the type of variable, and return type specifies the data type of the data the method returns, if any.
+- 
+- To access the class members, you use the dot (.) operator.
+- 
+- The dot operator links the name of an object with the name of a member.
+
+The following example illustrates the concepts discussed so far −
+
+```
+using System;
+
+namespace BoxApplication {
+   class Box {
+      public double length;   // Length of a box
+      public double breadth;  // Breadth of a box
+      public double height;   // Height of a box
+   }
+   class Boxtester {
+      static void Main(string[] args) {
+         Box Box1 = new Box();   // Declare Box1 of type Box
+         Box Box2 = new Box();   // Declare Box2 of type Box
+         double volume = 0.0;    // Store the volume of a box here
+
+         // box 1 specification
+         Box1.height = 5.0;
+         Box1.length = 6.0;
+         Box1.breadth = 7.0;
+
+         // box 2 specification
+         Box2.height = 10.0;
+         Box2.length = 12.0;
+         Box2.breadth = 13.0;
+           
+         // volume of box 1
+         volume = Box1.height * Box1.length * Box1.breadth;
+         Console.WriteLine("Volume of Box1 : {0}",  volume);
+
+         // volume of box 2
+         volume = Box2.height * Box2.length * Box2.breadth;
+         Console.WriteLine("Volume of Box2 : {0}", volume);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Volume of Box1 : 210
+Volume of Box2 : 1560
+```
+
+
+### Member Functions and Encapsulation
+A member function of a class is a function that has its definition or its prototype within the class definition similar to any other variable. It operates on any object of the class of which it is a member, and has access to all the members of a class for that object.
+
+Member variables are the attributes of an object (from design perspective) and they are kept private to implement encapsulation. These variables can only be accessed using the public member functions.
+
+Let us put above concepts to set and get the value of different class members in a class −
+
+```
+using System;
+
+namespace BoxApplication {
+   class Box {
+      private double length;   // Length of a box
+      private double breadth;  // Breadth of a box
+      private double height;   // Height of a box
+      
+      public void setLength( double len ) {
+         length = len;
+      }
+      public void setBreadth( double bre ) {
+         breadth = bre;
+      }
+      public void setHeight( double hei ) {
+         height = hei;
+      }
+      public double getVolume() {
+         return length * breadth * height;
+      }
+   }
+   class Boxtester {
+      static void Main(string[] args) {
+         Box Box1 = new Box();   // Declare Box1 of type Box
+         Box Box2 = new Box();
+         double volume;
+         
+         // Declare Box2 of type Box
+         // box 1 specification
+         Box1.setLength(6.0);
+         Box1.setBreadth(7.0);
+         Box1.setHeight(5.0);
+         
+         // box 2 specification
+         Box2.setLength(12.0);
+         Box2.setBreadth(13.0);
+         Box2.setHeight(10.0);
+         
+         // volume of box 1
+         volume = Box1.getVolume();
+         Console.WriteLine("Volume of Box1 : {0}" ,volume);
+         
+         // volume of box 2
+         volume = Box2.getVolume();
+         Console.WriteLine("Volume of Box2 : {0}", volume);
+         
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Volume of Box1 : 210
+Volume of Box2 : 1560
+```
+
+### C# Constructors
+A class constructor is a special member function of a class that is executed whenever we create new objects of that class.
+
+A constructor has exactly the same name as that of class and it does not have any return type. Following example explains the concept of constructor −
+
+```
+using System;
+
+namespace LineApplication {
+   class Line {
+      private double length;   // Length of a line
+      
+      public Line() {
+         Console.WriteLine("Object is being created");
+      }
+      public void setLength( double len ) {
+         length = len;
+      }
+      public double getLength() {
+         return length;
+      }
+
+      static void Main(string[] args) {
+         Line line = new Line();    
+         
+         // set line length
+         line.setLength(6.0);
+         Console.WriteLine("Length of line : {0}", line.getLength());
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Object is being created
+Length of line : 6
+```
+
+
+A default constructor does not have any parameter but if you need, a constructor can have parameters. Such constructors are called parameterized constructors. This technique helps you to assign initial value to an object at the time of its creation as shown in the following example −
+
+```
+using System;
+
+namespace LineApplication {
+   class Line {
+      private double length;   // Length of a line
+      
+      public Line(double len) {  //Parameterized constructor
+         Console.WriteLine("Object is being created, length = {0}", len);
+         length = len;
+      }
+      public void setLength( double len ) {
+         length = len;
+      }
+      public double getLength() {
+         return length;
+      }
+      static void Main(string[] args) {
+         Line line = new Line(10.0);
+         Console.WriteLine("Length of line : {0}", line.getLength()); 
+         
+         // set line length
+         line.setLength(6.0);
+         Console.WriteLine("Length of line : {0}", line.getLength()); 
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Object is being created, length = 10
+Length of line : 10
+Length of line : 6
+```
+
+### C# Destructors
+A destructor is a special member function of a class that is executed whenever an object of its class goes out of scope. A destructor has exactly the same name as that of the class with a prefixed tilde (~) and it can neither return a value nor can it take any parameters.
+
+Destructor can be very useful for releasing memory resources before exiting the program. Destructors cannot be inherited or overloaded.
+
+Following example explains the concept of destructor −
+
+
+```
+using System;
+
+namespace LineApplication {
+   class Line {
+      private double length;   // Length of a line
+      
+      public Line() {   // constructor
+         Console.WriteLine("Object is being created");
+      }
+      ~Line() {   //destructor
+         Console.WriteLine("Object is being deleted");
+      }
+      public void setLength( double len ) {
+         length = len;
+      }
+      public double getLength() {
+         return length;
+      }
+      static void Main(string[] args) {
+         Line line = new Line();
+
+         // set line length
+         line.setLength(6.0);
+         Console.WriteLine("Length of line : {0}", line.getLength());           
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Object is being created
+Length of line : 6
+Object is being deleted
+```
+
+### Static Members of a C# Class
+We can define class members as static using the static keyword. When we declare a member of a class as static, it means no matter how many objects of the class are created, there is only one copy of the static member.
+
+The keyword static implies that only one instance of the member exists for a class. Static variables are used for defining constants because their values can be retrieved by invoking the class without creating an instance of it. Static variables can be initialized outside the member function or class definition. You can also initialize static variables inside the class definition.
+
+The following example demonstrates the use of static variables −
+
+```
+using System;
+
+namespace StaticVarApplication {
+   class StaticVar {
+      public static int num;
+      
+      public void count() {
+         num++;
+      }
+      public int getNum() {
+         return num;
+      }
+   }
+   class StaticTester {
+      static void Main(string[] args) {
+         StaticVar s1 = new StaticVar();
+         StaticVar s2 = new StaticVar();
+         
+         s1.count();
+         s1.count();
+         s1.count();
+         
+         s2.count();
+         s2.count();
+         s2.count();
+         
+         Console.WriteLine("Variable num for s1: {0}", s1.getNum());
+         Console.WriteLine("Variable num for s2: {0}", s2.getNum());
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Variable num for s1: 6
+Variable num for s2: 6
+```
+
+You can also declare a member function as static. Such functions can access only static variables. The static functions exist even before the object is created. The following example demonstrates the use of static functions −
+
+
+```
+using System;
+
+namespace StaticVarApplication {
+   class StaticVar {
+      public static int num;
+      
+      public void count() {
+         num++;
+      }
+      public static int getNum() {
+         return num;
+      }
+   }
+   class StaticTester {
+      static void Main(string[] args) {
+         StaticVar s = new StaticVar();
+         
+         s.count();
+         s.count();
+         s.count();
+         
+         Console.WriteLine("Variable num: {0}", StaticVar.getNum());
+         Console.ReadKey();
+      }
+   }
+}
+
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Variable num: 3
+```
+
+
+### Inheritance
+One of the most important concepts in object-oriented programming is inheritance. Inheritance allows us to define a class in terms of another class, which makes it easier to create and maintain an application. This also provides an opportunity to reuse the code functionality and speeds up implementation time.
+
+When creating a class, instead of writing completely new data members and member functions, the programmer can designate that the new class should inherit the members of an existing class. This existing class is called the base class, and the new class is referred to as the derived class.
+
+The idea of inheritance implements the IS-A relationship. For example, mammal IS A animal, dog IS-A mammal hence dog IS-A animal as well, and so on.
+
+#### Base and Derived Classes
+A class can be derived from more than one class or interface, which means that it can inherit data and functions from multiple base classes or interfaces.
+
+The syntax used in C# for creating derived classes is as follows −
+
+```
+<acess-specifier> class <base_class> {
+   ...
+}
+
+class <derived_class> : <base_class> {
+   ...
+}
+```
+
+
+Consider a base class Shape and its derived class Rectangle −
+
+```
+using System;
+
+namespace InheritanceApplication {
+   class Shape {
+      public void setWidth(int w) {
+         width = w;
+      }
+      public void setHeight(int h) {
+         height = h;
+      }
+      protected int width;
+      protected int height;
+   }
+
+   // Derived class
+   class Rectangle: Shape {
+      public int getArea() { 
+         return (width * height); 
+      }
+   }
+   class RectangleTester {
+      static void Main(string[] args) {
+         Rectangle Rect = new Rectangle();
+
+         Rect.setWidth(5);
+         Rect.setHeight(7);
+
+         // Print the area of the object.
+         Console.WriteLine("Total area: {0}",  Rect.getArea());
+         Console.ReadKey();
+      }
+   }
+}
+
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Total area: 35
+```
+
+#### Initializing Base Class
+The derived class inherits the base class member variables and member methods. Therefore the super class object should be created before the subclass is created. You can give instructions for superclass initialization in the member initialization list.
+
+The following program demonstrates this −
+
+```
+using System;
+
+namespace RectangleApplication {
+   class Rectangle {
+      
+      //member variables
+      protected double length;
+      protected double width;
+      
+      public Rectangle(double l, double w) {
+         length = l;
+         width = w;
+      }
+      public double GetArea() {
+         return length * width;
+      }
+      public void Display() {
+         Console.WriteLine("Length: {0}", length);
+         Console.WriteLine("Width: {0}", width);
+         Console.WriteLine("Area: {0}", GetArea());
+      }
+   }//end class Rectangle  
+   class Tabletop : Rectangle {
+      private double cost;
+      public Tabletop(double l, double w) : base(l, w) { }
+      
+      public double GetCost() {
+         double cost;
+         cost = GetArea() * 70;
+         return cost;
+      }
+      public void Display() {
+         base.Display();
+         Console.WriteLine("Cost: {0}", GetCost());
+      }
+   }
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         Tabletop t = new Tabletop(4.5, 7.5);
+         t.Display();
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Length: 4.5
+Width: 7.5
+Area: 33.75
+Cost: 2362.5
+```
+
+#### Multiple Inheritance in C#
+C# does not support multiple inheritance. However, you can use interfaces to implement multiple inheritance. The following program demonstrates this −
+
+```
+using System;
+
+namespace InheritanceApplication {
+   class Shape {
+      public void setWidth(int w) {
+         width = w;
+      }
+      public void setHeight(int h) {
+         height = h;
+      }
+      protected int width;
+      protected int height;
+   }
+
+   // Base class PaintCost
+   public interface PaintCost {
+      int getCost(int area);
+   }
+   
+   // Derived class
+   class Rectangle : Shape, PaintCost {
+      public int getArea() {
+         return (width * height);
+      }
+      public int getCost(int area) {
+         return area * 70;
+      }
+   }
+   class RectangleTester {
+      static void Main(string[] args) {
+         Rectangle Rect = new Rectangle();
+         int area;
+         
+         Rect.setWidth(5);
+         Rect.setHeight(7);
+         area = Rect.getArea();
+         
+         // Print the area of the object.
+         Console.WriteLine("Total area: {0}",  Rect.getArea());
+         Console.WriteLine("Total paint cost: ${0}" , Rect.getCost(area));
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Total area: 35
+Total paint cost: $2450
+```
+
+### Polymorphism
+
+The word polymorphism means having many forms. In object-oriented programming paradigm, polymorphism is often expressed as 'one interface, multiple functions'.
+
+Polymorphism can be static or dynamic. In static polymorphism, the response to a function is determined at the compile time. In dynamic polymorphism, it is decided at run-time.
+
+#### Static Polymorphism
+The mechanism of linking a function with an object during compile time is called early binding. It is also called static binding. C# provides two techniques to implement static polymorphism. They are −
+
+- Function overloading
+- Operator overloading
+We discuss operator overloading in next chapter.
+
+##### Function Overloading
+You can have multiple definitions for the same function name in the same scope. The definition of the function must differ from each other by the types and/or the number of arguments in the argument list. You cannot overload function declarations that differ only by return type.
+
+The following example shows using function print() to print different data types −
+
+```
+using System;
+
+namespace PolymorphismApplication {
+   class Printdata {
+      void print(int i) {
+         Console.WriteLine("Printing int: {0}", i );
+      }
+      void print(double f) {
+         Console.WriteLine("Printing float: {0}" , f);
+      }
+      void print(string s) {
+         Console.WriteLine("Printing string: {0}", s);
+      }
+      static void Main(string[] args) {
+         Printdata p = new Printdata();
+         
+         // Call print to print integer
+         p.print(5);
+         
+         // Call print to print float
+         p.print(500.263);
+         
+         // Call print to print string
+         p.print("Hello C++");
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Printing int: 5
+Printing float: 500.263
+Printing string: Hello C++
+```
+
+#### Dynamic Polymorphism
+C# allows you to create abstract classes that are used to provide partial class implementation of an interface. Implementation is completed when a derived class inherits from it. Abstract classes contain abstract methods, which are implemented by the derived class. The derived classes have more specialized functionality.
+
+Here are the rules about abstract classes −
+
+- You cannot create an instance of an abstract class
+- 
+- You cannot declare an abstract method outside an abstract class
+- 
+- When a class is declared sealed, it cannot be inherited, abstract classes cannot be declared sealed.
+
+
+The following program demonstrates an abstract class −
+
+```
+using System;
+
+namespace PolymorphismApplication {
+   abstract class Shape {
+      public abstract int area();
+   }
+   
+   class Rectangle:  Shape {
+      private int length;
+      private int width;
+      
+      public Rectangle( int a = 0, int b = 0) {
+         length = a;
+         width = b;
+      }
+      public override int area () { 
+         Console.WriteLine("Rectangle class area :");
+         return (width * length); 
+      }
+   }
+   class RectangleTester {
+      static void Main(string[] args) {
+         Rectangle r = new Rectangle(10, 7);
+         double a = r.area();
+         Console.WriteLine("Area: {0}",a);
+         Console.ReadKey();
+      }
+   }
+}
+
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Rectangle class area :
+Area: 70
+```
+
+
+When you have a function defined in a class that you want to be implemented in an inherited class(es), you use virtual functions. The virtual functions could be implemented differently in different inherited class and the call to these functions will be decided at runtime.
+
+Dynamic polymorphism is implemented by abstract classes and virtual functions.
+
+The following program demonstrates this −
+
+```
+using System;
+
+namespace PolymorphismApplication {
+   class Shape {
+      protected int width, height;
+      
+      public Shape( int a = 0, int b = 0) {
+         width = a;
+         height = b;
+      }
+      public virtual int area() {
+         Console.WriteLine("Parent class area :");
+         return 0;
+      }
+   }
+   class Rectangle: Shape {
+      public Rectangle( int a = 0, int b = 0): base(a, b) {
+
+      }
+      public override int area () {
+         Console.WriteLine("Rectangle class area :");
+         return (width * height); 
+      }
+   }
+   class Triangle: Shape {
+      public Triangle(int a = 0, int b = 0): base(a, b) {
+      }
+      public override int area() {
+         Console.WriteLine("Triangle class area :");
+         return (width * height / 2); 
+      }
+   }
+   class Caller {
+      public void CallArea(Shape sh) {
+         int a;
+         a = sh.area();
+         Console.WriteLine("Area: {0}", a);
+      }
+   }  
+   class Tester {
+      static void Main(string[] args) {
+         Caller c = new Caller();
+         Rectangle r = new Rectangle(10, 7);
+         Triangle t = new Triangle(10, 5);
+         
+         c.CallArea(r);
+         c.CallArea(t);
+         Console.ReadKey();
+      }
+   }
+}
+
+```
+When the above code is compiled and executed, it produces the following result −
+
+```
+Rectangle class area:
+Area: 70
+Triangle class area:
+Area: 25
+```
+
+### Operator Overloading
+You can redefine or overload most of the built-in operators available in C#. Thus a programmer can use operators with user-defined types as well. Overloaded operators are functions with special names the keyword operator followed by the symbol for the operator being defined. similar to any other function, an overloaded operator has a return type and a parameter list.
+
+For example, go through the following function −
+
+```
+public static Box operator+ (Box b, Box c) {
+   Box box = new Box();
+   box.length = b.length + c.length;
+   box.breadth = b.breadth + c.breadth;
+   box.height = b.height + c.height;
+   return box;
+}
+```
+
+The above function implements the addition operator (+) for a user-defined class Box. It adds the attributes of two Box objects and returns the resultant Box object.
+
+#### Implementing the Operator Overloading
+The following program shows the complete implementation −
+
+```
+using System;
+
+namespace OperatorOvlApplication {
+   class Box {
+      private double length;   // Length of a box
+      private double breadth;  // Breadth of a box
+      private double height;   // Height of a box
+
+      public double getVolume() {
+         return length * breadth * height;
+      }
+      public void setLength( double len ) {
+         length = len;
+      }
+      public void setBreadth( double bre ) {
+         breadth = bre;
+      }
+      public void setHeight( double hei ) {
+         height = hei;
+      }
+      
+      // Overload + operator to add two Box objects.
+      public static Box operator+ (Box b, Box c) {
+         Box box = new Box();
+         box.length = b.length + c.length;
+         box.breadth = b.breadth + c.breadth;
+         box.height = b.height + c.height;
+         return box;
+      }
+   }
+   class Tester {
+      static void Main(string[] args) {
+         Box Box1 = new Box();   // Declare Box1 of type Box
+         Box Box2 = new Box();   // Declare Box2 of type Box
+         Box Box3 = new Box();   // Declare Box3 of type Box
+         double volume = 0.0;    // Store the volume of a box here
+
+         // box 1 specification
+         Box1.setLength(6.0);
+         Box1.setBreadth(7.0);
+         Box1.setHeight(5.0);
+
+         // box 2 specification
+         Box2.setLength(12.0);
+         Box2.setBreadth(13.0);
+         Box2.setHeight(10.0);
+
+         // volume of box 1
+         volume = Box1.getVolume();
+         Console.WriteLine("Volume of Box1 : {0}", volume);
+
+         // volume of box 2
+         volume = Box2.getVolume();
+         Console.WriteLine("Volume of Box2 : {0}", volume);
+
+         // Add two object as follows:
+         Box3 = Box1 + Box2;
+
+         // volume of box 3
+         volume = Box3.getVolume();
+         Console.WriteLine("Volume of Box3 : {0}", volume);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Volume of Box1 : 210
+Volume of Box2 : 1560
+Volume of Box3 : 5400
+```
+
+##### Overloadable and Non-Overloadable Operators
+The following table describes the overload ability of the operators in C# −
+
+1. +, -, !, ~, ++, -- : These unary operators take one operand and can be overloaded.
+2. +, -, *, /, % - : These binary operators take one operand and can be overloaded.
+3. ==, !=, <, >, <=, >= : The comparison operators can be overloaded.
+4. &&, || :The conditional logical operators cannot be overloaded directly.
+5. +=, -=, *=, /=, %= : The assignment operators cannot be overloaded.
+6. =, ., ?:, ->, new, is, sizeof, typeof : These operators cannot be overloaded.
+
+In the light of the above discussions, let us extend the preceding example, and overload few more operators −
+
+```
+using System;
+
+namespace OperatorOvlApplication {
+   class Box {
+      private double length;    // Length of a box
+      private double breadth;   // Breadth of a box
+      private double height;    // Height of a box
+      
+      public double getVolume() {
+         return length * breadth * height;
+      }
+      public void setLength( double len ) {
+         length = len;
+      }
+      public void setBreadth( double bre ) {
+         breadth = bre;
+      }
+      public void setHeight( double hei ) {
+         height = hei;
+      }
+      
+      // Overload + operator to add two Box objects.
+      public static Box operator+ (Box b, Box c) {
+         Box box = new Box();
+         box.length = b.length + c.length;
+         box.breadth = b.breadth + c.breadth;
+         box.height = b.height + c.height;
+         return box;
+      }
+      public static bool operator == (Box lhs, Box rhs) {
+         bool status = false;
+         if (lhs.length == rhs.length && lhs.height == rhs.height 
+            && lhs.breadth == rhs.breadth) {
+            
+            status = true;
+         }
+         return status;
+      }
+      public static bool operator !=(Box lhs, Box rhs) {
+         bool status = false;
+         
+         if (lhs.length != rhs.length || lhs.height != rhs.height || 
+            lhs.breadth != rhs.breadth) {
+            
+            status = true;
+         }
+         return status;
+      }
+      public static bool operator <(Box lhs, Box rhs) {
+         bool status = false;
+         
+         if (lhs.length < rhs.length && lhs.height < rhs.height 
+            && lhs.breadth < rhs.breadth) {
+            
+            status = true;
+         }
+         return status;
+      }
+      public static bool operator >(Box lhs, Box rhs) {
+         bool status = false;
+         
+         if (lhs.length > rhs.length && lhs.height > 
+            rhs.height && lhs.breadth > rhs.breadth) {
+            
+            status = true;
+         }
+         return status;
+      }
+      public static bool operator <=(Box lhs, Box rhs) {
+         bool status = false;
+         
+         if (lhs.length <= rhs.length && lhs.height 
+            <= rhs.height && lhs.breadth <= rhs.breadth) {
+            
+            status = true;
+         }
+         return status;
+      }
+      public static bool operator >=(Box lhs, Box rhs) {
+         bool status = false;
+         
+         if (lhs.length >= rhs.length && lhs.height 
+            >= rhs.height && lhs.breadth >= rhs.breadth) {
+            
+            status = true;
+         }
+         return status;
+      }
+      public override string ToString() {
+         return String.Format("({0}, {1}, {2})", length, breadth, height);
+      }
+   }
+   class Tester {
+      static void Main(string[] args) {
+         Box Box1 = new Box();   // Declare Box1 of type Box
+         Box Box2 = new Box();   // Declare Box2 of type Box
+         Box Box3 = new Box();   // Declare Box3 of type Box
+         Box Box4 = new Box();
+         double volume = 0.0;    // Store the volume of a box here
+         
+         // box 1 specification
+         Box1.setLength(6.0);
+         Box1.setBreadth(7.0);
+         Box1.setHeight(5.0);
+         
+         // box 2 specification
+         Box2.setLength(12.0);
+         Box2.setBreadth(13.0);
+         Box2.setHeight(10.0);
+         
+         //displaying the Boxes using the overloaded ToString():
+         Console.WriteLine("Box 1: {0}", Box1.ToString());
+         Console.WriteLine("Box 2: {0}", Box2.ToString());
+         
+         // volume of box 1
+         volume = Box1.getVolume();
+         Console.WriteLine("Volume of Box1 : {0}", volume);
+         
+         // volume of box 2
+         volume = Box2.getVolume();
+         Console.WriteLine("Volume of Box2 : {0}", volume);
+         
+         // Add two object as follows:
+         Box3 = Box1 + Box2;
+         Console.WriteLine("Box 3: {0}", Box3.ToString());
+         
+         // volume of box 3
+         volume = Box3.getVolume();
+         Console.WriteLine("Volume of Box3 : {0}", volume);
+         
+         //comparing the boxes
+         if (Box1 > Box2)
+            Console.WriteLine("Box1 is greater than Box2");
+         else
+            Console.WriteLine("Box1 is not greater than Box2");
+         
+         if (Box1 < Box2)
+            Console.WriteLine("Box1 is less than Box2");
+         else
+            Console.WriteLine("Box1 is not less than Box2");
+         
+         if (Box1 >= Box2)
+            Console.WriteLine("Box1 is greater or equal to Box2");
+         else
+            Console.WriteLine("Box1 is not greater or equal to Box2");
+         
+         if (Box1 <= Box2)
+            Console.WriteLine("Box1 is less or equal to Box2");
+         else
+            Console.WriteLine("Box1 is not less or equal to Box2");
+         
+         if (Box1 != Box2)
+            Console.WriteLine("Box1 is not equal to Box2");
+         else
+            Console.WriteLine("Box1 is not greater or equal to Box2");
+         Box4 = Box3;
+         
+         if (Box3 == Box4)
+            Console.WriteLine("Box3 is equal to Box4");
+         else
+            Console.WriteLine("Box3 is not equal to Box4");
+
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+
+```
+Box 1: (6, 7, 5)
+Box 2: (12, 13, 10)
+Volume of Box1 : 210
+Volume of Box2 : 1560
+Box 3: (18, 20, 15)
+Volume of Box3 : 5400
+Box1 is not greater than Box2
+Box1 is less than Box2
+Box1 is not greater or equal to Box2
+Box1 is less or equal to Box2
+Box1 is not equal to Box2
+Box3 is equal to Box4
+```
+

@@ -1,0 +1,7 @@
+F:\Visual Studio Projects\ArrayListC\ArrayListC\bin\Debug\ArrayListC.exe.config
+F:\Visual Studio Projects\ArrayListC\ArrayListC\bin\Debug\ArrayListC.exe
+F:\Visual Studio Projects\ArrayListC\ArrayListC\bin\Debug\ArrayListC.pdb
+F:\Visual Studio Projects\ArrayListC\ArrayListC\obj\Debug\ArrayListC.csprojResolveAssemblyReference.cache
+F:\Visual Studio Projects\ArrayListC\ArrayListC\obj\Debug\ArrayListC.csproj.CoreCompileInputs.cache
+F:\Visual Studio Projects\ArrayListC\ArrayListC\obj\Debug\ArrayListC.exe
+F:\Visual Studio Projects\ArrayListC\ArrayListC\obj\Debug\ArrayListC.pdb
