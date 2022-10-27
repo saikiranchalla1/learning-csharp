@@ -83,26 +83,26 @@
   - [Loops in C#](#loops-in-c)
     - [While Loop](#while-loop)
       - [Syntax](#syntax-7)
-      - [Flow Diagram](#flow-diagram)
+      - [Flow Diagram](#flow-diagram-1)
       - [Example](#example-7)
     - [for loop](#for-loop)
       - [Syntax](#syntax-8)
-      - [Flow Diagram](#flow-diagram-1)
+      - [Flow Diagram](#flow-diagram-2)
       - [Example](#example-8)
     - [do...while Loop](#dowhile-loop)
       - [Syntax](#syntax-9)
-      - [Flow Diagram](#flow-diagram-2)
+      - [Flow Diagram](#flow-diagram-3)
       - [Example](#example-9)
     - [Nested Loop](#nested-loop)
       - [Example](#example-10)
     - [Loop Control Statements](#loop-control-statements)
       - [break statement](#break-statement)
         - [Syntax](#syntax-10)
-        - [Flow Diagram](#flow-diagram-3)
+        - [Flow Diagram](#flow-diagram-4)
         - [Example](#example-11)
       - [continue statement](#continue-statement)
         - [Syntax](#syntax-11)
-        - [Flow Diagram](#flow-diagram-4)
+        - [Flow Diagram](#flow-diagram-5)
         - [Example](#example-12)
     - [Infinite Loop](#infinite-loop)
       - [Example](#example-13)
@@ -132,6 +132,48 @@
     - [Operator Overloading](#operator-overloading)
       - [Implementing the Operator Overloading](#implementing-the-operator-overloading)
         - [Overloadable and Non-Overloadable Operators](#overloadable-and-non-overloadable-operators)
+  - [Collections](#collections)
+    - [Collection Class](#collection-class)
+    - [Various Collection Classes and Their Usage](#various-collection-classes-and-their-usage)
+      - [ArrayList](#arraylist)
+      - [Hashtable](#hashtable)
+      - [SortedList Class](#sortedlist-class)
+      - [Stack Class](#stack-class)
+      - [Queue Class](#queue-class)
+      - [BitArray Class](#bitarray-class)
+  - [Structs](#structs)
+    - [Defining a Structure](#defining-a-structure)
+    - [Features of C# Structures](#features-of-c-structures)
+    - [Class versus Structure](#class-versus-structure)
+  - [Enums](#enums)
+    - [Declaring enum Variable](#declaring-enum-variable)
+    - [Example](#example-14)
+  - [Regular Expressions](#regular-expressions)
+    - [Constructs for Defining Regular Expressions](#constructs-for-defining-regular-expressions)
+  - [File I/O](#file-io)
+    - [C# I/O Classes](#c-io-classes)
+    - [The FileStream Class](#the-filestream-class)
+    - [Example](#example-15)
+    - [Advanced File Operations in C#](#advanced-file-operations-in-c)
+      - [Reading from and Writing to Text Files](#reading-from-and-writing-to-text-files)
+        - [The StreamReader Class](#the-streamreader-class)
+        - [The StreamWriter Class](#the-streamwriter-class)
+      - [Reading from and Writing into Binary files](#reading-from-and-writing-into-binary-files)
+        - [The BinaryReader Class](#the-binaryreader-class)
+        - [The BinaryWriter Class](#the-binarywriter-class)
+      - [Windows File System](#windows-file-system)
+        - [The DirectoryInfo Class](#the-directoryinfo-class)
+        - [The FileInfo Class](#the-fileinfo-class)
+  - [Attributes](#attributes)
+    - [Specifying an Attribute](#specifying-an-attribute)
+    - [Predefined Attributes](#predefined-attributes)
+    - [AttributeUsage](#attributeusage)
+    - [Conditional](#conditional)
+    - [Obsolete](#obsolete)
+    - [Creating Custom Attributes](#creating-custom-attributes)
+      - [Declaring a Custom Attribute](#declaring-a-custom-attribute)
+      - [Constructing the Custom Attribute](#constructing-the-custom-attribute)
+      - [Applying the Custom Attribute](#applying-the-custom-attribute)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -3637,3 +3679,1431 @@ Box1 is not equal to Box2
 Box3 is equal to Box4
 ```
 
+## Collections
+Collections standardize the way of which the objects are handled by your program. In other words, it contains a set of classes to contain elements in a generalized manner. With the help of collections, the user can perform several operations on objects like the store, update, delete, retrieve, search, sort etc.
+
+C# divide collection in several classes, some of the common classes are shown below:
+
+![](imgs/collections.jpg)
+
+Generic collection in C# is defined in System.Collection.Generic namespace. It provides a generic implementation of standard data structure like linked lists, stacks, queues, and dictionaries. These collections are type-safe because they are generic means only those items that are type-compatible with the type of the collection can be stored in a generic collection, it eliminates accidental type mismatches. Generic collections are defined by the set of interfaces and classes.
+
+### Collection Class
+Collection<T> Class provides the base class for a generic collection. Here T is the type of elements in the collection. This class comes under the System.Collections.ObjectModel namespace.
+
+Characteristics:
+
+- The Collection<T> class can be used immediately by creating an instance of one of its constructed types.
+- The Collection<T> class provides protected methods that can be used to customize its behavior when adding and removing items, clearing the collection, or setting the value of an existing item.
+- Most Collection<T> objects can be modified. However, a Collection object that is initialized with a read-only IList<T> object cannot be modified.
+- Elements in this collection can be accessed using an integer index. Indexes in this collection are zero-based.
+- Collection<T> accepts null as a valid value for reference types and allows duplicate elements.
+
+```
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+  
+class GFG {
+  
+    // Driver code
+    public static void Main()
+    {
+        // Creating a collection of ints
+        Collection<int> myColl = new Collection<int>();
+  
+        // Adding elements in Collection myColl
+        myColl.Add(2);
+        myColl.Add(3);
+        myColl.Add(4);
+        myColl.Add(5);
+  
+        // Displaying the elements in myColl
+        foreach(int i in myColl)
+        {
+            Console.WriteLine(i);
+        }
+    }
+}
+```
+
+Outputs:
+
+```
+2
+3
+4
+5
+```
+
+```
+// C# Code to illustrate the 
+// Properties of Collection class
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+   
+class GFG {
+   
+    // Driver code
+    public static void Main()
+    {
+          
+        // Creating a collection of strings
+        Collection<string> myColl = new Collection<string>();
+   
+        // Adding elements in Collection myColl
+        myColl.Add("A");
+        myColl.Add("B");
+        myColl.Add("C");
+        myColl.Add("D");
+        myColl.Add("E");
+          
+        // ------- Count Property ----------
+          
+        // To print the count of
+        // elements in Collection
+        Console.WriteLine("Count : " + myColl.Count);
+   
+        // -------- Item[Int32] Property --------
+          
+        // Get the element at index 2
+        Console.WriteLine("Element at index 2 is : " + myColl[2]);
+   
+        // Get the element at index 3
+        Console.WriteLine("Element at index 3 is : " + myColl[3]);
+    }
+}
+```
+
+Outputs:
+```
+Count : 5
+Element at index 2 is : C
+Element at index 3 is : D
+```
+
+```
+// C# code to check if an
+// element is in the Collection
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+  
+class GFG {
+  
+    // Driver code
+    public static void Main()
+    {
+        // Creating a collection of strings
+        Collection<string> myColl = new Collection<string>();
+  
+        myColl.Add("A");
+        myColl.Add("B");
+        myColl.Add("C");
+        myColl.Add("D");
+        myColl.Add("E");
+  
+        // Checking if an element is in the Collection
+        // The function returns "True" if the
+        // item is present in Collection
+        // else returns "False"
+        Console.WriteLine(myColl.Contains("A"));
+    }
+}
+```
+
+Outputs:
+
+```
+True
+```
+
+
+### Various Collection Classes and Their Usage
+The following are the various commonly used classes of the System.Collection namespace. Click the following links to check their detail.
+
+#### ArrayList
+It represents an ordered collection of an object that can be indexed individually. It is basically an alternative to an array. However, unlike array you can add and remove items from a list at a specified position using an index and the array resizes itself automatically. It also allows dynamic memory allocation, adding, searching and sorting items in the list.
+
+```
+using System;
+using System.Collections;
+
+namespace CollectionApplication {
+   class Program {
+      static void Main(string[] args) {
+         ArrayList al = new ArrayList();
+         
+         Console.WriteLine("Adding some numbers:");
+         al.Add(45);
+         al.Add(78);
+         al.Add(33);
+         al.Add(56);
+         al.Add(12);
+         al.Add(23);
+         al.Add(9);
+         
+         Console.WriteLine("Capacity: {0} ", al.Capacity);
+         Console.WriteLine("Count: {0}", al.Count);
+         
+         Console.Write("Content: ");
+         foreach (int i in al) {
+            Console.Write(i + " ");
+         }
+         
+         Console.WriteLine();
+         Console.Write("Sorted Content: ");
+         al.Sort();
+         foreach (int i in al) {
+            Console.Write(i + " ");
+         }
+         Console.WriteLine();
+         Console.ReadKey();
+      }
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+
+
+```
+Adding some numbers:
+Capacity: 8
+Count: 7
+Content: 45 78 33 56 12 23 9
+Content: 9 12 23 33 45 56 78    
+```
+
+#### Hashtable
+The Hashtable class represents a collection of key-and-value pairs that are organized based on the hash code of the key. It uses the key to access the elements in the collection.
+
+A hash table is used when you need to access elements by using key, and you can identify a useful key value. Each item in the hash table has a key/value pair. The key is used to access the items in the collection.
+
+```
+using System;
+using System.Collections;
+
+namespace CollectionsApplication {
+   class Program {
+      static void Main(string[] args) {
+         Hashtable ht = new Hashtable();
+         
+         ht.Add("001", "Zara Ali");
+         ht.Add("002", "Abida Rehman");
+         ht.Add("003", "Joe Holzner");
+         ht.Add("004", "Mausam Benazir Nur");
+         ht.Add("005", "M. Amlan");
+         ht.Add("006", "M. Arif");
+         ht.Add("007", "Ritesh Saikia");
+         
+         if (ht.ContainsValue("Nuha Ali")) {
+            Console.WriteLine("This student name is already in the list");
+         } else {
+            ht.Add("008", "Nuha Ali");
+         }
+         
+         // Get a collection of the keys.
+         ICollection key = ht.Keys;
+         
+         foreach (string k in key) {
+            Console.WriteLine(k + ": " + ht[k]);
+         }
+         Console.ReadKey();
+      }
+   }
+}
+
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+001: Zara Ali
+002: Abida Rehman
+003: Joe Holzner
+004: Mausam Benazir Nur
+005: M. Amlan
+006: M. Arif
+007: Ritesh Saikia
+008: Nuha Ali 
+```
+
+#### SortedList Class
+The SortedList class represents a collection of key-and-value pairs that are sorted by the keys and are accessible by key and by index.
+
+A sorted list is a combination of an array and a hash table. It contains a list of items that can be accessed using a key or an index. If you access items using an index, it is an ArrayList, and if you access items using a key, it is a Hashtable. The collection of items is always sorted by the key value.
+
+```
+using System;
+using System.Collections;
+
+namespace CollectionsApplication {
+   class Program {
+      static void Main(string[] args) {
+         SortedList sl = new SortedList();
+         
+         sl.Add("001", "Zara Ali");
+         sl.Add("002", "Abida Rehman");
+         sl.Add("003", "Joe Holzner");
+         sl.Add("004", "Mausam Benazir Nur");
+         sl.Add("005", "M. Amlan");
+         sl.Add("006", "M. Arif");
+         sl.Add("007", "Ritesh Saikia");
+         
+         if (sl.ContainsValue("Nuha Ali")) {
+            Console.WriteLine("This student name is already in the list");
+         } else {
+            sl.Add("008", "Nuha Ali");
+         }
+
+         // get a collection of the keys. 
+         ICollection key = sl.Keys;
+
+         foreach (string k in key) {
+            Console.WriteLine(k + ": " + sl[k]);
+         }
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+001: Zara Ali
+002: Abida Rehman
+003: Joe Holzner
+004: Mausam Banazir Nur
+005: M. Amlan 
+006: M. Arif
+007: Ritesh Saikia
+008: Nuha Ali
+```
+
+#### Stack Class
+It represents a last-in, first out collection of object. It is used when you need a last-in, first-out access of items. When you add an item in the list, it is called pushing the item and when you remove it, it is called popping the item.
+
+
+```
+using System;
+using System.Collections;
+
+namespace CollectionsApplication {
+   class Program {
+      static void Main(string[] args) {
+         Stack st = new Stack();
+         
+         st.Push('A');
+         st.Push('M');
+         st.Push('G');
+         st.Push('W');
+         
+         Console.WriteLine("Current stack: ");
+         foreach (char c in st) {
+            Console.Write(c + " ");
+         }
+         Console.WriteLine();
+         
+         st.Push('V');
+         st.Push('H');
+         Console.WriteLine("The next poppable value in stack: {0}", st.Peek());
+         Console.WriteLine("Current stack: ");
+         
+         foreach (char c in st) {
+            Console.Write(c + " ");
+         }
+         
+         Console.WriteLine();
+         
+         Console.WriteLine("Removing values ");
+         st.Pop();
+         st.Pop();
+         st.Pop();
+         
+         Console.WriteLine("Current stack: ");
+         foreach (char c in st) {
+            Console.Write(c + " ");
+         }
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Current stack: 
+W G M A
+The next poppable value in stack: H
+Current stack: 
+H V W G M A
+Removing values
+Current stack: 
+G M A
+```
+
+#### Queue Class
+It represents a first-in, first out collection of object. It is used when you need a first-in, first-out access of items. When you add an item in the list, it is called enqueue, and when you remove an item, it is called deque.
+
+```
+using System;
+using System.Collections;
+
+namespace CollectionsApplication {
+   class Program {
+      static void Main(string[] args) {
+         Queue q = new Queue();
+         
+         q.Enqueue('A');
+         q.Enqueue('M');
+         q.Enqueue('G');
+         q.Enqueue('W');
+         
+         Console.WriteLine("Current queue: ");
+         foreach (char c in q) Console.Write(c + " ");
+         
+         Console.WriteLine();
+         q.Enqueue('V');
+         q.Enqueue('H');
+         Console.WriteLine("Current queue: ");
+         foreach (char c in q) Console.Write(c + " ");
+         
+         Console.WriteLine();
+         Console.WriteLine("Removing some values ");
+         char ch = (char)q.Dequeue();
+         Console.WriteLine("The removed value: {0}", ch);
+         ch = (char)q.Dequeue();
+         Console.WriteLine("The removed value: {0}", ch);
+         
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Current queue: 
+A M G W 
+Current queue: 
+A M G W V H 
+Removing values
+The removed value: A
+The removed value: M
+```
+
+
+#### BitArray Class
+The BitArray class manages a compact array of bit values, which are represented as Booleans, where true indicates that the bit is on (1) and false indicates the bit is off (0).
+
+It is used when you need to store the bits but do not know the number of bits in advance. You can access items from the BitArray collection by using an integer index, which starts from zero.
+
+```
+using System;
+using System.Collections;
+
+namespace CollectionsApplication {
+   class Program {
+      static void Main(string[] args) {
+         //creating two  bit arrays of size 8
+         BitArray ba1 = new BitArray(8);
+         BitArray ba2 = new BitArray(8);
+         
+         byte[] a = { 60 };
+         byte[] b = { 13 };
+         
+         //storing the values 60, and 13 into the bit arrays
+         ba1 = new BitArray(a);
+         ba2 = new BitArray(b);
+         
+         //content of ba1
+         Console.WriteLine("Bit array ba1: 60");
+         
+         for (int i = 0; i < ba1.Count; i++) {
+            Console.Write("{0, -6} ", ba1[i]);
+         }
+         Console.WriteLine();
+         
+         //content of ba2
+         Console.WriteLine("Bit array ba2: 13");
+         
+         for (int i = 0; i < ba2.Count; i++) {
+            Console.Write("{0, -6} ", ba2[i]);
+         }
+         Console.WriteLine();
+         BitArray ba3 = new BitArray(8);
+         ba3 = ba1.And(ba2);
+         
+         //content of ba3
+         Console.WriteLine("Bit array ba3 after AND operation: 12");
+         
+         for (int i = 0; i < ba3.Count; i++) {
+            Console.Write("{0, -6} ", ba3[i]);
+         }
+         Console.WriteLine();
+         ba3 = ba1.Or(ba2);
+         
+         //content of ba3
+         Console.WriteLine("Bit array ba3 after OR operation: 61");
+         
+         for (int i = 0; i < ba3.Count; i++) {
+            Console.Write("{0, -6} ", ba3[i]);
+         }
+         Console.WriteLine();
+
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Bit array ba1: 60 
+False False True True True True False False 
+Bit array ba2: 13
+True False True True False False False False 
+Bit array ba3 after AND operation: 12
+False False True True False False False False 
+Bit array ba3 after OR operation: 61
+True False True True False False False False 
+```
+
+
+
+## Structs
+In C#, a structure is a value type data type. It helps you to make a single variable hold related data of various data types. The struct keyword is used for creating a structure.
+
+Structures are used to represent a record. Suppose you want to keep track of your books in a library. You might want to track the following attributes about each book −
+
+- Title
+- Author
+- Subject
+- Book ID
+
+### Defining a Structure
+To define a structure, you must use the struct statement. The struct statement defines a new data type, with more than one member for your program.
+
+For example, here is the way you can declare the Book structure −
+
+```
+struct Books {
+   public string title;
+   public string author;
+   public string subject;
+   public int book_id;
+};  
+```
+
+The following program shows the use of the structure −
+
+```
+using System;
+
+struct Books {
+   public string title;
+   public string author;
+   public string subject;
+   public int book_id;
+};  
+
+public class testStructure {
+   public static void Main(string[] args) {
+      Books Book1;   /* Declare Book1 of type Book */
+      Books Book2;   /* Declare Book2 of type Book */
+
+      /* book 1 specification */
+      Book1.title = "C Programming";
+      Book1.author = "Nuha Ali"; 
+      Book1.subject = "C Programming Tutorial";
+      Book1.book_id = 6495407;
+
+      /* book 2 specification */
+      Book2.title = "Telecom Billing";
+      Book2.author = "Zara Ali";
+      Book2.subject =  "Telecom Billing Tutorial";
+      Book2.book_id = 6495700;
+
+      /* print Book1 info */
+      Console.WriteLine( "Book 1 title : {0}", Book1.title);
+      Console.WriteLine("Book 1 author : {0}", Book1.author);
+      Console.WriteLine("Book 1 subject : {0}", Book1.subject);
+      Console.WriteLine("Book 1 book_id :{0}", Book1.book_id);
+
+      /* print Book2 info */
+      Console.WriteLine("Book 2 title : {0}", Book2.title);
+      Console.WriteLine("Book 2 author : {0}", Book2.author);
+      Console.WriteLine("Book 2 subject : {0}", Book2.subject);
+      Console.WriteLine("Book 2 book_id : {0}", Book2.book_id);       
+
+      Console.ReadKey();
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+
+```
+Book 1 title : C Programming
+Book 1 author : Nuha Ali
+Book 1 subject : C Programming Tutorial
+Book 1 book_id : 6495407
+Book 2 title : Telecom Billing
+Book 2 author : Zara Ali
+Book 2 subject : Telecom Billing Tutorial
+Book 2 book_id : 6495700
+```
+
+### Features of C# Structures
+You have already used a simple structure named Books. Structures in C# are quite different from that in traditional C or C++. The C# structures have the following features −
+
+- Structures can have methods, fields, indexers, properties, operator methods, and events.
+- 
+- Structures can have defined constructors, but not destructors. However, you cannot define a default constructor for a structure. The default constructor is automatically defined and cannot be changed.
+- 
+- Unlike classes, structures cannot inherit other structures or classes.
+- 
+- Structures cannot be used as a base for other structures or classes.
+- 
+- A structure can implement one or more interfaces.
+- 
+- Structure members cannot be specified as abstract, virtual, or protected.
+- 
+- When you create a struct object using the New operator, it gets created and the appropriate constructor is called. Unlike classes, structs can be instantiated without using the New operator.
+- 
+- If the New operator is not used, the fields remain unassigned and the object cannot be used until all the fields are initialized.
+
+### Class versus Structure
+Classes and Structures have the following basic differences −
+
+- classes are reference types and structs are value types
+- structures do not support inheritance
+- structures cannot have default constructor
+In the light of the above discussions, let us rewrite the previous example −
+
+
+```
+using System;
+
+struct Books {
+   private string title;
+   private string author;
+   private string subject;
+   private int book_id;
+   
+   public void getValues(string t, string a, string s, int id) {
+      title = t;
+      author = a;
+      subject = s;
+      book_id = id;
+   }
+   
+   public void display() {
+      Console.WriteLine("Title : {0}", title);
+      Console.WriteLine("Author : {0}", author);
+      Console.WriteLine("Subject : {0}", subject);
+      Console.WriteLine("Book_id :{0}", book_id);
+   }
+};  
+
+public class testStructure {
+
+   public static void Main(string[] args) {
+      Books Book1 = new Books();   /* Declare Book1 of type Book */
+      Books Book2 = new Books();   /* Declare Book2 of type Book */
+
+      /* book 1 specification */
+      Book1.getValues("C Programming",
+      "Nuha Ali", "C Programming Tutorial",6495407);
+
+      /* book 2 specification */
+      Book2.getValues("Telecom Billing",
+      "Zara Ali", "Telecom Billing Tutorial", 6495700);
+
+      /* print Book1 info */
+      Book1.display();
+
+      /* print Book2 info */
+      Book2.display(); 
+
+      Console.ReadKey();
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Title : C Programming
+Author : Nuha Ali
+Subject : C Programming Tutorial
+Book_id : 6495407
+Title : Telecom Billing
+Author : Zara Ali
+Subject : Telecom Billing Tutorial
+Book_id : 6495700
+
+```
+
+
+## Enums
+An enumeration is a set of named integer constants. An enumerated type is declared using the enum keyword.
+
+C# enumerations are value data type. In other words, enumeration contains its own values and cannot inherit or cannot pass inheritance.
+
+### Declaring enum Variable
+The general syntax for declaring an enumeration is −
+```
+enum <enum_name> {
+   enumeration list 
+};
+```
+
+Where,
+
+- The enum_name specifies the enumeration type name.
+- 
+- The enumeration list is a comma-separated list of identifiers.
+
+Each of the symbols in the enumeration list stands for an integer value, one greater than the symbol that precedes it. By default, the value of the first enumeration symbol is 0. For example −
+
+```
+enum Days { Sun, Mon, tue, Wed, thu, Fri, Sat };
+```
+
+### Example
+The following example demonstrates use of enum variable −
+
+```
+using System;
+
+namespace EnumApplication {
+   class EnumProgram {
+      enum Days { Sun, Mon, tue, Wed, thu, Fri, Sat };
+
+      static void Main(string[] args) {
+         int WeekdayStart = (int)Days.Mon;
+         int WeekdayEnd = (int)Days.Fri;
+         
+         Console.WriteLine("Monday: {0}", WeekdayStart);
+         Console.WriteLine("Friday: {0}", WeekdayEnd);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Monday: 1
+Friday: 5
+```
+
+
+## Regular Expressions
+A regular expression is a pattern that could be matched against an input text. The .Net framework provides a regular expression engine that allows such matching. A pattern consists of one or more character literals, operators, or constructs.
+
+### Constructs for Defining Regular Expressions
+There are various categories of characters, operators, and constructs that lets you to define regular expressions.
+
+- Character escapes
+- 
+- Character classes
+- 
+- Anchors
+- 
+- Grouping constructs
+- 
+- Quantifiers
+- 
+- Backreference constructs
+- 
+- Alternation constructs
+- 
+- Substitutions
+- 
+- Miscellaneous constructs
+
+The following example matches words that start with 'S' −
+
+
+```
+using System;
+using System.Text.RegularExpressions;
+
+namespace RegExApplication {
+   class Program {
+      private static void showMatch(string text, string expr) {
+         Console.WriteLine("The Expression: " + expr);
+         MatchCollection mc = Regex.Matches(text, expr);
+         
+         foreach (Match m in mc) {
+            Console.WriteLine(m);
+         }
+      }
+      static void Main(string[] args) {
+         string str = "A Thousand Splendid Suns";
+         
+         Console.WriteLine("Matching words that start with 'S': ");
+         showMatch(str, @"\bS\S*");
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Matching words that start with 'S':
+The Expression: \bS\S*
+Splendid
+Suns
+```
+
+
+Example 2 :The following example matches words that start with 'm' and ends with 'e' −
+
+```
+using System;
+using System.Text.RegularExpressions;
+
+namespace RegExApplication {
+   class Program {
+      private static void showMatch(string text, string expr) {
+         Console.WriteLine("The Expression: " + expr);
+         MatchCollection mc = Regex.Matches(text, expr);
+         
+         foreach (Match m in mc) {
+            Console.WriteLine(m);
+         }
+      }
+      static void Main(string[] args) {
+         string str = "make maze and manage to measure it";
+
+         Console.WriteLine("Matching words start with 'm' and ends with 'e':");
+         showMatch(str, @"\bm\S*e\b");
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Matching words start with 'm' and ends with 'e':
+The Expression: \bm\S*e\b
+make
+maze
+manage
+measure
+```
+
+
+Example 3 :This example replaces extra white space −
+
+```
+using System;
+using System.Text.RegularExpressions;
+
+namespace RegExApplication {
+   class Program {
+      static void Main(string[] args) {
+         string input = "Hello   World   ";
+         string pattern = "\\s+";
+         string replacement = " ";
+         
+         Regex rgx = new Regex(pattern);
+         string result = rgx.Replace(input, replacement);
+
+         Console.WriteLine("Original String: {0}", input);
+         Console.WriteLine("Replacement String: {0}", result);    
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Original String: Hello World   
+Replacement String: Hello World 
+```
+
+## File I/O
+A file is a collection of data stored in a disk with a specific name and a directory path. When a file is opened for reading or writing, it becomes a stream.
+
+The stream is basically the sequence of bytes passing through the communication path. There are two main streams: the input stream and the output stream. The input stream is used for reading data from file (read operation) and the output stream is used for writing into the file (write operation).
+
+### C# I/O Classes
+The System.IO namespace has various classes that are used for performing numerous operations with files, such as creating and deleting files, reading from or writing to a file, closing a file etc.
+
+The following table shows some commonly used non-abstract classes in the System.IO namespace −
+
+1. BinaryReader : Reads primitive data from a binary stream.
+2. BinaryWriter: Writes primitive data in binary format.
+3. BufferedStream : A temporary storage for a stream of bytes.
+4. Directory: Helps in manipulating a directory structure.
+5. DirectoryInfo: Used for performing operations on directories.
+6. DriveInfo: Provides information for the drives.
+7. File: Helps in manipulating files.
+8. FileInfo: Used for performing operations on files.
+9. FileStream: Used to read from and write to any location in a file.
+10. MemoryStream: Used for random access to streamed data stored in memory.
+11. Path: Performs operations on path information.
+12. StreamReader: Used for reading characters from a byte stream.
+13. StreamWriter: Is used for writing characters to a stream.
+14. StringReader: Is used for reading from a string buffer.
+15. StringWriter: Is used for writing into a string buffer.
+
+
+### The FileStream Class
+The FileStream class in the System.IO namespace helps in reading from, writing to and closing files. This class derives from the abstract class Stream.
+
+You need to create a FileStream object to create a new file or open an existing file. The syntax for creating a FileStream object is as follows −
+
+```
+FileStream <object_name> = new FileStream( <file_name>, <FileMode Enumerator>,
+   <FileAccess Enumerator>, <FileShare Enumerator>);
+```
+
+For example, we create a FileStream object F for reading a file named sample.txt as shown −
+
+```
+FileStream F = new FileStream("sample.txt", FileMode.Open, FileAccess.Read,
+   FileShare.Read);
+```
+
+### Example
+The following program demonstrates use of the FileStream class −
+
+```
+using System;
+using System.IO;
+
+namespace FileIOApplication {
+   class Program {
+      static void Main(string[] args) {
+         FileStream F = new FileStream("test.dat", FileMode.OpenOrCreate, 
+            FileAccess.ReadWrite);
+         
+         for (int i = 1; i <= 20; i++) {
+            F.WriteByte((byte)i);
+         }
+         F.Position = 0;
+         for (int i = 0; i <= 20; i++) {
+            Console.Write(F.ReadByte() + " ");
+         }
+         F.Close();
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 -1
+```
+
+
+### Advanced File Operations in C#
+The preceding example provides simple file operations in C#. However, to utilize the immense powers of C# System.IO classes, you need to know the commonly used properties and methods of these classes.
+
+#### Reading from and Writing to Text Files
+
+The StreamReader and StreamWriter classes are used for reading from and writing data to text files. These classes inherit from the abstract base class Stream, which supports reading and writing bytes into a file stream.
+
+##### The StreamReader Class
+The StreamReader class also inherits from the abstract base class TextReader that represents a reader for reading series of characters. 
+
+Example
+The following example demonstrates reading a text file named Jamaica.txt. The file reads −
+
+```
+Down the way where the nights are gay
+And the sun shines daily on the mountain top
+I took a trip on a sailing ship
+And when I reached Jamaica
+I made a stop
+```
+
+```
+using System;
+using System.IO;
+
+namespace FileApplication {
+   class Program {
+      static void Main(string[] args) {
+         try {
+            // Create an instance of StreamReader to read from a file.
+            // The using statement also closes the StreamReader.
+            using (StreamReader sr = new StreamReader("c:/jamaica.txt")) {
+               string line;
+
+               // Read and display lines from the file until 
+               // the end of the file is reached. 
+               while ((line = sr.ReadLine()) != null) {
+                  Console.WriteLine(line);
+               }
+            }
+         } catch (Exception e) {
+            // Let the user know what went wrong.
+            Console.WriteLine("The file could not be read:");
+            Console.WriteLine(e.Message);
+         }
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+##### The StreamWriter Class
+The StreamWriter class inherits from the abstract class TextWriter that represents a writer, which can write a series of character.
+
+
+
+Example
+The following example demonstrates writing text data into a file using the StreamWriter class −
+
+```
+using System;
+using System.IO;
+
+namespace FileApplication {
+   class Program {
+      static void Main(string[] args) {
+         string[] names = new string[] {"Zara Ali", "Nuha Ali"};
+         
+         using (StreamWriter sw = new StreamWriter("names.txt")) {
+
+            foreach (string s in names) {
+               sw.WriteLine(s);
+            }
+         }
+         
+         // Read and show each line from the file.
+         string line = "";
+         using (StreamReader sr = new StreamReader("names.txt")) {
+            while ((line = sr.ReadLine()) != null) {
+               Console.WriteLine(line);
+            }
+         }
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Zara Ali
+Nuha Ali
+
+```
+
+#### Reading from and Writing into Binary files
+The BinaryReader and BinaryWriter classes are used for reading from and writing to a binary file.
+
+##### The BinaryReader Class
+The BinaryReader class is used to read binary data from a file. A BinaryReader object is created by passing a FileStream object to its constructor.
+
+##### The BinaryWriter Class
+The BinaryWriter class is used to write binary data to a stream. A BinaryWriter object is created by passing a FileStream object to its constructor.
+
+```
+using System;
+using System.IO;
+
+namespace BinaryFileApplication {
+   class Program {
+      static void Main(string[] args) {
+         BinaryWriter bw;
+         BinaryReader br;
+         
+         int i = 25;
+         double d = 3.14157;
+         bool b = true;
+         string s = "I am happy";
+         
+         //create the file
+         try {
+            bw = new BinaryWriter(new FileStream("mydata", FileMode.Create));
+         } catch (IOException e) {
+            Console.WriteLine(e.Message + "\n Cannot create file.");
+            return;
+         }
+         
+         //writing into the file
+         try {
+            bw.Write(i);
+            bw.Write(d);
+            bw.Write(b);
+            bw.Write(s);
+         } catch (IOException e) {
+            Console.WriteLine(e.Message + "\n Cannot write to file.");
+            return;
+         }
+         bw.Close();
+         
+         //reading from the file
+         try {
+            br = new BinaryReader(new FileStream("mydata", FileMode.Open));
+         } catch (IOException e) {
+            Console.WriteLine(e.Message + "\n Cannot open file.");
+            return;
+         }
+         
+         try {
+            i = br.ReadInt32();
+            Console.WriteLine("Integer data: {0}", i);
+            d = br.ReadDouble();
+            Console.WriteLine("Double data: {0}", d);
+            b = br.ReadBoolean();
+            Console.WriteLine("Boolean data: {0}", b);
+            s = br.ReadString();
+            Console.WriteLine("String data: {0}", s);
+         } catch (IOException e) {
+            Console.WriteLine(e.Message + "\n Cannot read from file.");
+            return;
+         }
+         br.Close();
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Integer data: 25
+Double data: 3.14157
+Boolean data: True
+String data: I am happy
+```
+
+#### Windows File System
+
+C# allows you to work with the directories and files using various directory and file related classes such as the DirectoryInfo class and the FileInfo class.
+
+##### The DirectoryInfo Class
+The DirectoryInfo class is derived from the FileSystemInfo class. It has various methods for creating, moving, and browsing through directories and subdirectories. This class cannot be inherited.
+
+##### The FileInfo Class
+The FileInfo class is derived from the FileSystemInfo class. It has properties and instance methods for creating, copying, deleting, moving, and opening of files, and helps in the creation of FileStream objects. This class cannot be inherited.
+
+Eample:
+
+```
+using System;
+using System.IO;
+
+namespace WindowsFileApplication {
+   class Program {
+      static void Main(string[] args) {
+         //creating a DirectoryInfo object
+         DirectoryInfo mydir = new DirectoryInfo(@"c:\Windows");
+         
+         // getting the files in the directory, their names and size
+         FileInfo [] f = mydir.GetFiles();
+         foreach (FileInfo file in f) {
+            Console.WriteLine("File Name: {0} Size: {1}", file.Name, file.Length);
+         }
+         
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When you compile and run the program, it displays the names of files and their respective sizes in the Windows directory.
+
+
+## Attributes
+An attribute is a declarative tag that is used to convey information to runtime about the behaviors of various elements like classes, methods, structures, enumerators, assemblies etc. in your program. You can add declarative information to a program by using an attribute. A declarative tag is depicted by square ([ ]) brackets placed above the element it is used for.
+
+Attributes are used for adding metadata, such as compiler instruction and other information such as comments, description, methods and classes to a program. The .Net Framework provides two types of attributes: the pre-defined attributes and custom built attributes.
+
+### Specifying an Attribute
+Syntax for specifying an attribute is as follows −
+```
+[attribute(positional_parameters, name_parameter = value, ...)]
+element
+```
+
+
+Name of the attribute and its values are specified within the square brackets, before the element to which the attribute is applied. Positional parameters specify the essential information and the name parameters specify the optional information.
+
+### Predefined Attributes
+The .Net Framework provides three pre-defined attributes −
+
+- AttributeUsage
+- Conditional
+- Obsolete
+
+### AttributeUsage
+The pre-defined attribute AttributeUsage describes how a custom attribute class can be used. It specifies the types of items to which the attribute can be applied.
+
+Syntax for specifying this attribute is as follows −
+
+```
+[AttributeUsage (
+   validon,
+   AllowMultiple = allowmultiple,
+   Inherited = inherited
+)]
+```
+
+Where,
+
+- The parameter validon specifies the language elements on which the attribute can be placed. It is a combination of the value of an enumerator AttributeTargets. The default value is AttributeTargets.All.
+- 
+- The parameter allowmultiple (optional) provides value for the AllowMultiple property of this attribute, a Boolean value. If this is true, the attribute is multiuse. The default is false (single-use).
+- 
+- The parameter inherited (optional) provides value for the Inherited property of this attribute, a Boolean value. If it is true, the attribute is inherited by derived classes. The default value is false (not inherited).
+
+
+For example,
+
+```
+[AttributeUsage(
+   AttributeTargets.Class |
+   AttributeTargets.Constructor |
+   AttributeTargets.Field |
+   AttributeTargets.Method |
+   AttributeTargets.Property, 
+   AllowMultiple = true)]
+```
+
+
+### Conditional
+This predefined attribute marks a conditional method whose execution depends on a specified preprocessing identifier.
+
+It causes conditional compilation of method calls, depending on the specified value such as Debug or Trace. For example, it displays the values of the variables while debugging a code.
+
+Syntax for specifying this attribute is as follows −
+
+```
+[Conditional(
+   conditionalSymbol
+)]
+```
+
+For example,
+```
+[Conditional("DEBUG")]
+```
+
+The following example demonstrates the attribute −
+
+```
+#define DEBUG
+using System;
+using System.Diagnostics;
+
+public class Myclass {
+   [Conditional("DEBUG")]
+   
+   public static void Message(string msg) {
+      Console.WriteLine(msg);
+   }
+}
+class Test {
+   static void function1() {
+      Myclass.Message("In Function 1.");
+      function2();
+   }
+   static void function2() {
+      Myclass.Message("In Function 2.");
+   }
+   public static void Main() {
+      Myclass.Message("In Main function.");
+      function1();
+      Console.ReadKey();
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+In Main function
+In Function 1
+In Function 2
+```
+
+### Obsolete
+This predefined attribute marks a program entity that should not be used. It enables you to inform the compiler to discard a particular target element. For example, when a new method is being used in a class and if you still want to retain the old method in the class, you may mark it as obsolete by displaying a message the new method should be used, instead of the old method.
+
+Syntax for specifying this attribute is as follows −
+
+```
+[Obsolete (
+   message
+)]
+
+[Obsolete (
+   message,
+   iserror
+)]
+```
+
+Where,
+
+- The parameter message, is a string describing the reason why the item is obsolete and what to use instead.
+- The parameter iserror, is a Boolean value. If its value is true, the compiler should treat the use of the item as an error. Default value is false (compiler generates a warning).
+
+
+The following program demonstrates this −
+
+```
+using System;
+
+public class MyClass {
+   [Obsolete("Don't use OldMethod, use NewMethod instead", true)]
+   
+   static void OldMethod() {
+      Console.WriteLine("It is the old method");
+   }
+   static void NewMethod() {
+      Console.WriteLine("It is the new method"); 
+   }
+   public static void Main() {
+      OldMethod();
+   }
+}
+```
+
+When you try to compile the program, the compiler gives an error message stating −
+```
+ Don't use OldMethod, use NewMethod instead
+```
+
+### Creating Custom Attributes
+The .Net Framework allows creation of custom attributes that can be used to store declarative information and can be retrieved at run-time. This information can be related to any target element depending upon the design criteria and application need.
+
+Creating and using custom attributes involve four steps −
+
+- Declaring a custom attribute
+- Constructing the custom attribute
+- Apply the custom attribute on a target program element
+- Accessing Attributes Through Reflection
+
+The Last step involves writing a simple program to read through the metadata to find various notations. Metadata is data about data or information used for describing other data. This program should use reflections for accessing attributes at runtime. This we will discuss in the next chapter.
+
+#### Declaring a Custom Attribute
+A new custom attribute should is derived from the System.Attribute class. For example,
+
+```
+//a custom attribute BugFix to be assigned to a class and its members
+[AttributeUsage(
+   AttributeTargets.Class |
+   AttributeTargets.Constructor |
+   AttributeTargets.Field |
+   AttributeTargets.Method |
+   AttributeTargets.Property,
+   AllowMultiple = true)]
+
+public class DeBugInfo : System.Attribute
+```
+
+In the preceding code, we have declared a custom attribute named DeBugInfo.
+
+#### Constructing the Custom Attribute
+Let us construct a custom attribute named DeBugInfo, which stores the information obtained by debugging any program. Let it store the following information −
+
+- The code number for the bug
+- Name of the developer who identified the bug
+- Date of last review of the code
+- A string message for storing the developer's remarks
+
+
+The DeBugInfo class has three private properties for storing the first three information and a public property for storing the message. Hence the bug number, developer's name, and date of review are the positional parameters of the DeBugInfo class and the message is an optional or named parameter.
+
+Each attribute must have at least one constructor. The positional parameters should be passed through the constructor. The following code shows the DeBugInfo class −
+
+```
+//a custom attribute BugFix to be assigned to a class and its members
+[AttributeUsage(
+   AttributeTargets.Class |
+   AttributeTargets.Constructor |
+   AttributeTargets.Field |
+   AttributeTargets.Method |
+   AttributeTargets.Property,
+   AllowMultiple = true)]
+
+public class DeBugInfo : System.Attribute {
+   private int bugNo;
+   private string developer;
+   private string lastReview;
+   public string message;
+   
+   public DeBugInfo(int bg, string dev, string d) {
+      this.bugNo = bg;
+      this.developer = dev;
+      this.lastReview = d;
+   }
+   public int BugNo {
+      get {
+         return bugNo;
+      }
+   }
+   public string Developer {
+      get {
+         return developer;
+      }
+   }
+   public string LastReview {
+      get {
+         return lastReview;
+      }
+   }
+   public string Message {
+      get {
+         return message;
+      }
+      set {
+         message = value;
+      }
+   }
+}
+```
+
+#### Applying the Custom Attribute
+The attribute is applied by placing it immediately before its target −
+
+```
+[DeBugInfo(45, "Zara Ali", "12/8/2012", Message = "Return type mismatch")]
+[DeBugInfo(49, "Nuha Ali", "10/10/2012", Message = "Unused variable")]
+class Rectangle {
+   //member variables
+   protected double length;
+   protected double width;
+   public Rectangle(double l, double w) {
+      length = l;
+      width = w;
+   }
+   [DeBugInfo(55, "Zara Ali", "19/10/2012", Message = "Return type mismatch")]
+   
+   public double GetArea() {
+      return length * width;
+   }
+   [DeBugInfo(56, "Zara Ali", "19/10/2012")]
+   
+   public void Display() {
+      Console.WriteLine("Length: {0}", length);
+      Console.WriteLine("Width: {0}", width);
+      Console.WriteLine("Area: {0}", GetArea());
+   }
+}
+```
+
+In the next chapter, we retrieve attribute information using a Reflection class object.
