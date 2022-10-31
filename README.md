@@ -83,26 +83,26 @@
   - [Loops in C#](#loops-in-c)
     - [While Loop](#while-loop)
       - [Syntax](#syntax-7)
-      - [Flow Diagram](#flow-diagram-1)
+      - [Flow Diagram](#flow-diagram)
       - [Example](#example-7)
     - [for loop](#for-loop)
       - [Syntax](#syntax-8)
-      - [Flow Diagram](#flow-diagram-2)
+      - [Flow Diagram](#flow-diagram-1)
       - [Example](#example-8)
     - [do...while Loop](#dowhile-loop)
       - [Syntax](#syntax-9)
-      - [Flow Diagram](#flow-diagram-3)
+      - [Flow Diagram](#flow-diagram-2)
       - [Example](#example-9)
     - [Nested Loop](#nested-loop)
       - [Example](#example-10)
     - [Loop Control Statements](#loop-control-statements)
       - [break statement](#break-statement)
         - [Syntax](#syntax-10)
-        - [Flow Diagram](#flow-diagram-4)
+        - [Flow Diagram](#flow-diagram-3)
         - [Example](#example-11)
       - [continue statement](#continue-statement)
         - [Syntax](#syntax-11)
-        - [Flow Diagram](#flow-diagram-5)
+        - [Flow Diagram](#flow-diagram-4)
         - [Example](#example-12)
     - [Infinite Loop](#infinite-loop)
       - [Example](#example-13)
@@ -174,6 +174,41 @@
       - [Declaring a Custom Attribute](#declaring-a-custom-attribute)
       - [Constructing the Custom Attribute](#constructing-the-custom-attribute)
       - [Applying the Custom Attribute](#applying-the-custom-attribute)
+  - [Reflection](#reflection)
+    - [Applications of Reflection](#applications-of-reflection)
+    - [Viewing Metadata](#viewing-metadata)
+    - [Example](#example-16)
+  - [Properties](#properties)
+    - [Accessors](#accessors)
+    - [Example](#example-17)
+    - [Abstract Properties](#abstract-properties)
+  - [Indexers](#indexers)
+    - [Syntax](#syntax-12)
+    - [Use of Indexers](#use-of-indexers)
+    - [Overloaded Indexers](#overloaded-indexers)
+  - [Delegates](#delegates)
+    - [Declaring Delegates](#declaring-delegates)
+    - [Instantiating Delegates](#instantiating-delegates)
+    - [Multicasting of a Delegate](#multicasting-of-a-delegate)
+    - [Using Delegates](#using-delegates)
+  - [Events](#events)
+    - [Using Delegates with Events](#using-delegates-with-events)
+    - [Declaring Events](#declaring-events)
+  - [Anonymous Methods](#anonymous-methods)
+    - [Writing an Anonymous Method](#writing-an-anonymous-method)
+    - [Example](#example-18)
+  - [Unsafe Codes](#unsafe-codes)
+    - [Pointers](#pointers)
+    - [Retrieving the Data Value Using a Pointer](#retrieving-the-data-value-using-a-pointer)
+    - [Passing Pointers as Parameters to Methods](#passing-pointers-as-parameters-to-methods)
+    - [Accessing Array Elements Using a Pointer](#accessing-array-elements-using-a-pointer)
+    - [Compiling Unsafe Code](#compiling-unsafe-code)
+  - [Multithreading](#multithreading)
+    - [Thread Life Cycle](#thread-life-cycle)
+    - [The Main Thread](#the-main-thread)
+    - [Creating Threads](#creating-threads)
+    - [Managing Threads](#managing-threads)
+    - [Destroying Threads](#destroying-threads)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -5107,3 +5142,1290 @@ class Rectangle {
 ```
 
 In the next chapter, we retrieve attribute information using a Reflection class object.
+
+## Reflection
+Reflection objects are used for obtaining type information at runtime. The classes that give access to the metadata of a running program are in the System.Reflection namespace.
+
+The System.Reflection namespace contains classes that allow you to obtain information about the application and to dynamically add types, values, and objects to the application.
+
+### Applications of Reflection
+Reflection has the following applications −
+
+- It allows view attribute information at runtime.
+- 
+- It allows examining various types in an assembly and instantiate these types.
+- 
+- It allows late binding to methods and properties
+- 
+- It allows creating new types at runtime and then performs some tasks using those types.
+
+
+
+### Viewing Metadata
+We have mentioned in the preceding chapter that using reflection you can view the attribute information.
+
+The MemberInfo object of the System.Reflection class needs to be initialized for discovering the attributes associated with a class. To do this, you define an object of the target class, as −
+
+```
+System.Reflection.MemberInfo info = typeof(MyClass);
+```
+
+
+The following program demonstrates this −
+
+```
+using System;
+
+[AttributeUsage(AttributeTargets.All)]
+public class HelpAttribute : System.Attribute {
+   public readonly string Url;
+   
+   public string Topic   // Topic is a named parameter {
+      get {
+         return topic;
+      }
+      set {
+         topic = value;
+      }
+   }
+   public HelpAttribute(string url)   // url is a positional parameter {
+      this.Url = url;
+   }
+   private string topic;
+}
+
+[HelpAttribute("Information on the class MyClass")]
+class MyClass {
+
+}
+
+namespace AttributeAppl {
+   class Program {
+      static void Main(string[] args) {
+         System.Reflection.MemberInfo info = typeof(MyClass);
+         object[] attributes = info.GetCustomAttributes(true);
+         
+         for (int i = 0; i < attributes.Length; i++) {
+            System.Console.WriteLine(attributes[i]);
+         }
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When it is compiled and run, it displays the name of the custom attributes attached to the class MyClass −
+
+```
+HelpAttribute
+```
+
+
+### Example
+In this example, we use the DeBugInfo attribute created in the previous chapter and use reflection to read metadata in the Rectangle class.
+
+```
+using System;
+using System.Reflection;
+
+namespace BugFixApplication {
+   //a custom attribute BugFix to be assigned to a class and its members
+   [AttributeUsage(
+      AttributeTargets.Class |
+      AttributeTargets.Constructor |
+      AttributeTargets.Field |
+      AttributeTargets.Method |
+      AttributeTargets.Property,
+      AllowMultiple = true)]
+
+   public class DeBugInfo : System.Attribute {
+      private int bugNo;
+      private string developer;
+      private string lastReview;
+      public string message;
+      
+      public DeBugInfo(int bg, string dev, string d) {
+         this.bugNo = bg;
+         this.developer = dev;
+         this.lastReview = d;
+      }
+      public int BugNo {
+         get {
+            return bugNo;
+         }
+      }
+      public string Developer {
+         get {
+            return developer;
+         }
+      }
+      public string LastReview {
+         get {
+            return lastReview;
+         }
+      }
+      public string Message {
+         get {
+            return message;
+         }
+         set {
+            message = value;
+         }
+      }
+   }
+   [DeBugInfo(45, "Zara Ali", "12/8/2012", Message = "Return type mismatch")]
+   [DeBugInfo(49, "Nuha Ali", "10/10/2012", Message = "Unused variable")]
+   
+   class Rectangle {
+      //member variables
+      protected double length;
+      protected double width;
+      
+      public Rectangle(double l, double w) {
+         length = l;
+         width = w;
+      }
+      [DeBugInfo(55, "Zara Ali", "19/10/2012", Message = "Return type mismatch")]
+      public double GetArea() {
+         return length * width;
+      }
+      [DeBugInfo(56, "Zara Ali", "19/10/2012")]
+      public void Display() {
+         Console.WriteLine("Length: {0}", length);
+         Console.WriteLine("Width: {0}", width);
+         Console.WriteLine("Area: {0}", GetArea());
+      }
+   }//end class Rectangle
+   
+   class ExecuteRectangle {
+      static void Main(string[] args) {
+         Rectangle r = new Rectangle(4.5, 7.5);
+         r.Display();
+         Type type = typeof(Rectangle);
+         
+         //iterating through the attribtues of the Rectangle class
+         foreach (Object attributes in type.GetCustomAttributes(false)) {
+            DeBugInfo dbi = (DeBugInfo)attributes;
+            
+            if (null != dbi) {
+               Console.WriteLine("Bug no: {0}", dbi.BugNo);
+               Console.WriteLine("Developer: {0}", dbi.Developer);
+               Console.WriteLine("Last Reviewed: {0}", dbi.LastReview);
+               Console.WriteLine("Remarks: {0}", dbi.Message);
+            }
+         }
+         
+         //iterating through the method attribtues
+         foreach (MethodInfo m in type.GetMethods()) {
+            
+            foreach (Attribute a in m.GetCustomAttributes(true)) {
+               DeBugInfo dbi = (DeBugInfo)a;
+               
+               if (null != dbi) {
+                  Console.WriteLine("Bug no: {0}, for Method: {1}", dbi.BugNo, m.Name);
+                  Console.WriteLine("Developer: {0}", dbi.Developer);
+                  Console.WriteLine("Last Reviewed: {0}", dbi.LastReview);
+                  Console.WriteLine("Remarks: {0}", dbi.Message);
+               }
+            }
+         }
+         Console.ReadLine();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Length: 4.5
+Width: 7.5
+Area: 33.75
+Bug No: 49
+Developer: Nuha Ali
+Last Reviewed: 10/10/2012
+Remarks: Unused variable
+Bug No: 45
+Developer: Zara Ali
+Last Reviewed: 12/8/2012
+Remarks: Return type mismatch
+Bug No: 55, for Method: GetArea
+Developer: Zara Ali
+Last Reviewed: 19/10/2012
+Remarks: Return type mismatch
+Bug No: 56, for Method: Display
+Developer: Zara Ali
+Last Reviewed: 19/10/2012
+Remarks: 
+```
+
+## Properties
+
+Properties are named members of classes, structures, and interfaces. Member variables or methods in a class or structures are called Fields. Properties are an extension of fields and are accessed using the same syntax. They use accessors through which the values of the private fields can be read, written or manipulated.
+
+Properties do not name the storage locations. Instead, they have accessors that read, write, or compute their values.
+
+For example, let us have a class named Student, with private fields for age, name, and code. We cannot directly access these fields from outside the class scope, but we can have properties for accessing these private fields.
+
+### Accessors
+The accessor of a property contains the executable statements that helps in getting (reading or computing) or setting (writing) the property. The accessor declarations can contain a get accessor, a set accessor, or both. For example −
+
+
+```
+// Declare a Code property of type string:
+public string Code {
+   get {
+      return code;
+   }
+   set {
+      code = value;
+   }
+}
+
+// Declare a Name property of type string:
+public string Name {
+   get {
+      return name;
+   }
+   set {
+      name = value;
+   }
+}
+
+// Declare a Age property of type int:
+public int Age { 
+   get {
+      return age;
+   }
+   set {
+      age = value;
+   }
+}
+```
+
+### Example
+The following example demonstrates use of properties −
+
+```
+using System;
+namespace tutorialspoint {
+   class Student {
+      private string code = "N.A";
+      private string name = "not known";
+      private int age = 0;
+      
+      // Declare a Code property of type string:
+      public string Code {
+         get {
+            return code;
+         }
+         set {
+            code = value;
+         }
+      }
+      
+      // Declare a Name property of type string:
+      public string Name {
+         get {
+            return name;
+         }
+         set {
+            name = value;
+         }
+      }
+      
+      // Declare a Age property of type int:
+      public int Age {
+         get {
+            return age;
+         }
+         set {
+            age = value;
+         }
+      }
+      public override string ToString() {
+         return "Code = " + Code +", Name = " + Name + ", Age = " + Age;
+      }
+   }
+   
+   class ExampleDemo {
+      public static void Main() {
+      
+         // Create a new Student object:
+         Student s = new Student();
+         
+         // Setting code, name and the age of the student
+         s.Code = "001";
+         s.Name = "Zara";
+         s.Age = 9;
+         Console.WriteLine("Student Info: {0}", s);
+         
+         //let us increase age
+         s.Age += 1;
+         Console.WriteLine("Student Info: {0}", s);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Student Info: Code = 001, Name = Zara, Age = 9
+Student Info: Code = 001, Name = Zara, Age = 10
+```
+
+### Abstract Properties
+An abstract class may have an abstract property, which should be implemented in the derived class. The following program illustrates this −
+
+```
+using System;
+
+namespace tutorialspoint {
+   public abstract class Person {
+      public abstract string Name {
+         get;
+         set;
+      }
+      public abstract int Age {
+         get;
+         set;
+      }
+   }
+   class Student : Person {
+      private string code = "N.A";
+      private string name = "N.A";
+      private int age = 0;
+      
+      // Declare a Code property of type string:
+      public string Code {
+         get {
+            return code;
+         }
+         set {
+            code = value;
+         }
+      }
+      
+      // Declare a Name property of type string:
+      public override string Name {
+         get {
+            return name;
+         }
+         set {
+            name = value;
+         }
+      }
+      
+      // Declare a Age property of type int:
+      public override int Age {
+         get {
+            return age;
+         }
+         set {
+            age = value;
+         }
+      }
+      public override string ToString() {
+         return "Code = " + Code +", Name = " + Name + ", Age = " + Age;
+      }
+   }
+   
+   class ExampleDemo {
+      public static void Main() {
+         // Create a new Student object:
+         Student s = new Student();
+         
+         // Setting code, name and the age of the student
+         s.Code = "001";
+         s.Name = "Zara";
+         s.Age = 9;
+         Console.WriteLine("Student Info:- {0}", s);
+         
+         //let us increase age
+         s.Age += 1;
+         Console.WriteLine("Student Info:- {0}", s);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Student Info: Code = 001, Name = Zara, Age = 9
+Student Info: Code = 001, Name = Zara, Age = 10
+```
+
+## Indexers
+An indexer allows an object to be indexed such as an array. When you define an indexer for a class, this class behaves similar to a virtual array. You can then access the instance of this class using the array access operator ([ ]).
+
+### Syntax
+A one dimensional indexer has the following syntax −
+
+```
+element-type this[int index] {
+
+   // The get accessor.
+   get {
+      // return the value specified by index
+   }
+   
+   // The set accessor.
+   set {
+      // set the value specified by index
+   }
+}
+```
+
+### Use of Indexers
+Declaration of behavior of an indexer is to some extent similar to a property. similar to the properties, you use get and set accessors for defining an indexer. However, properties return or set a specific data member, whereas indexers returns or sets a particular value from the object instance. In other words, it breaks the instance data into smaller parts and indexes each part, gets or sets each part.
+
+Defining a property involves providing a property name. Indexers are not defined with names, but with the this keyword, which refers to the object instance. The following example demonstrates the concept −
+
+```
+using System;
+
+namespace IndexerApplication {
+   
+   class IndexedNames {
+      private string[] namelist = new string[size];
+      static public int size = 10;
+      
+      public IndexedNames() {
+         for (int i = 0; i < size; i++)
+         namelist[i] = "N. A.";
+      }
+      public string this[int index] {
+         get {
+            string tmp;
+         
+            if( index >= 0 && index <= size-1 ) {
+               tmp = namelist[index];
+            } else {
+               tmp = "";
+            }
+            
+            return ( tmp );
+         }
+         set {
+            if( index >= 0 && index <= size-1 ) {
+               namelist[index] = value;
+            }
+         }
+      }
+      static void Main(string[] args) {
+         IndexedNames names = new IndexedNames();
+         names[0] = "Zara";
+         names[1] = "Riz";
+         names[2] = "Nuha";
+         names[3] = "Asif";
+         names[4] = "Davinder";
+         names[5] = "Sunil";
+         names[6] = "Rubic";
+         
+         for ( int i = 0; i < IndexedNames.size; i++ ) {
+            Console.WriteLine(names[i]);
+         }
+         Console.ReadKey();
+      }
+   }
+}
+
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Zara
+Riz
+Nuha
+Asif
+Davinder
+Sunil
+Rubic
+N. A.
+N. A.
+N. A.
+```
+
+
+### Overloaded Indexers
+Indexers can be overloaded. Indexers can also be declared with multiple parameters and each parameter may be a different type. It is not necessary that the indexes have to be integers. C# allows indexes to be of other types, for example, a string.
+
+The following example demonstrates overloaded indexers −
+
+```
+using System;
+
+namespace IndexerApplication {
+   class IndexedNames {
+      private string[] namelist = new string[size];
+      static public int size = 10;
+      
+      public IndexedNames() {
+         for (int i = 0; i < size; i++) {
+            namelist[i] = "N. A.";
+         }
+      }
+      public string this[int index] {
+         get {
+            string tmp;
+            
+            if( index >= 0 && index <= size-1 ) {
+               tmp = namelist[index];
+            } else {
+               tmp = "";
+            }
+            
+            return ( tmp );
+         }
+         set {
+            if( index >= 0 && index <= size-1 ) {
+               namelist[index] = value;
+            }
+         }
+      }
+      
+      public int this[string name] {
+         get {
+            int index = 0;
+            
+            while(index < size) {
+               if (namelist[index] == name) {
+                return index;
+               }
+               index++;
+            }
+            return index;
+         }
+      }
+
+      static void Main(string[] args) {
+         IndexedNames names = new IndexedNames();
+         names[0] = "Zara";
+         names[1] = "Riz";
+         names[2] = "Nuha";
+         names[3] = "Asif";
+         names[4] = "Davinder";
+         names[5] = "Sunil";
+         names[6] = "Rubic";
+         
+         //using the first indexer with int parameter
+         for (int i = 0; i < IndexedNames.size; i++) {
+            Console.WriteLine(names[i]);
+         }
+         
+         //using the second indexer with the string parameter
+         Console.WriteLine(names["Nuha"]);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Zara
+Riz
+Nuha
+Asif
+Davinder
+Sunil
+Rubic
+N. A.
+N. A.
+N. A.
+2
+```
+
+## Delegates
+
+C# delegates are similar to pointers to functions, in C or C++. A delegate is a reference type variable that holds the reference to a method. The reference can be changed at runtime.
+
+Delegates are especially used for implementing events and the call-back methods. All delegates are implicitly derived from the System.Delegate class.
+
+### Declaring Delegates
+Delegate declaration determines the methods that can be referenced by the delegate. A delegate can refer to a method, which has the same signature as that of the delegate.
+
+For example, consider a delegate −
+
+```
+public delegate int MyDelegate (string s);
+```
+
+
+The preceding delegate can be used to reference any method that has a single string parameter and returns an int type variable.
+
+Syntax for delegate declaration is −
+
+```
+delegate <return type> <delegate-name> <parameter list>
+```
+
+### Instantiating Delegates
+Once a delegate type is declared, a delegate object must be created with the new keyword and be associated with a particular method. When creating a delegate, the argument passed to the new expression is written similar to a method call, but without the arguments to the method. For example −
+
+```
+public delegate void printString(string s);
+...
+printString ps1 = new printString(WriteToScreen);
+printString ps2 = new printString(WriteToFile);
+```
+
+Following example demonstrates declaration, instantiation, and use of a delegate that can be used to reference methods that take an integer parameter and returns an integer value.
+
+```
+using System;
+
+delegate int NumberChanger(int n);
+namespace DelegateAppl {
+   
+   class TestDelegate {
+      static int num = 10;
+      
+      public static int AddNum(int p) {
+         num += p;
+         return num;
+      }
+      public static int MultNum(int q) {
+         num *= q;
+         return num;
+      }
+      public static int getNum() {
+         return num;
+      }
+      static void Main(string[] args) {
+         //create delegate instances
+         NumberChanger nc1 = new NumberChanger(AddNum);
+         NumberChanger nc2 = new NumberChanger(MultNum);
+         
+         //calling the methods using the delegate objects
+         nc1(25);
+         Console.WriteLine("Value of Num: {0}", getNum());
+         nc2(5);
+         Console.WriteLine("Value of Num: {0}", getNum());
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Value of Num: 35
+Value of Num: 175
+```
+
+### Multicasting of a Delegate
+Delegate objects can be composed using the "+" operator. A composed delegate calls the two delegates it was composed from. Only delegates of the same type can be composed. The "-" operator can be used to remove a component delegate from a composed delegate.
+
+Using this property of delegates you can create an invocation list of methods that will be called when a delegate is invoked. This is called multicasting of a delegate. The following program demonstrates multicasting of a delegate −
+
+```
+using System;
+
+delegate int NumberChanger(int n);
+namespace DelegateAppl {
+   class TestDelegate {
+      static int num = 10;
+      
+      public static int AddNum(int p) {
+         num += p;
+         return num;
+      }
+      public static int MultNum(int q) {
+         num *= q;
+         return num;
+      }
+      public static int getNum() {
+         return num;
+      }
+      static void Main(string[] args) {
+         //create delegate instances
+         NumberChanger nc;
+         NumberChanger nc1 = new NumberChanger(AddNum);
+         NumberChanger nc2 = new NumberChanger(MultNum);
+         
+         nc = nc1;
+         nc += nc2;
+         
+         //calling multicast
+         nc(5);
+         Console.WriteLine("Value of Num: {0}", getNum());
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+
+```
+Value of Num: 75
+```
+
+### Using Delegates
+The following example demonstrates the use of delegate. The delegate printString can be used to reference method that takes a string as input and returns nothing.
+
+We use this delegate to call two methods, the first prints the string to the console, and the second one prints it to a file −
+
+```
+using System;
+using System.IO;
+
+namespace DelegateAppl {
+
+   class PrintString {
+      static FileStream fs;
+      static StreamWriter sw;
+      
+      // delegate declaration
+      public delegate void printString(string s);
+
+      // this method prints to the console
+      public static void WriteToScreen(string str) {
+         Console.WriteLine("The String is: {0}", str);
+      }
+      
+      //this method prints to a file
+      public static void WriteToFile(string s) {
+         fs = new FileStream("c:\\message.txt",
+         FileMode.Append, FileAccess.Write);
+         sw = new StreamWriter(fs);
+         sw.WriteLine(s);
+         sw.Flush();
+         sw.Close();
+         fs.Close();
+      }
+      
+      // this method takes the delegate as parameter and uses it to
+      // call the methods as required
+      public static void sendString(printString ps) {
+         ps("Hello World");
+      }
+      
+      static void Main(string[] args) {
+         printString ps1 = new printString(WriteToScreen);
+         printString ps2 = new printString(WriteToFile);
+         sendString(ps1);
+         sendString(ps2);
+         Console.ReadKey();
+      }
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+
+```
+The String is: Hello World
+```
+
+## Events
+Events are user actions such as key press, clicks, mouse movements, etc., or some occurrence such as system generated notifications. Applications need to respond to events when they occur. For example, interrupts. Events are used for inter-process communication.
+
+### Using Delegates with Events
+The events are declared and raised in a class and associated with the event handlers using delegates within the same class or some other class. The class containing the event is used to publish the event. This is called the publisher class. Some other class that accepts this event is called the subscriber class. Events use the publisher-subscriber model.
+
+A publisher is an object that contains the definition of the event and the delegate. The event-delegate association is also defined in this object. A publisher class object invokes the event and it is notified to other objects.
+
+A subscriber is an object that accepts the event and provides an event handler. The delegate in the publisher class invokes the method (event handler) of the subscriber class.
+
+### Declaring Events
+To declare an event inside a class, first of all, you must declare a delegate type for the even as:
+
+```
+public delegate string BoilerLogHandler(string str);
+```
+
+then, declare the event using the event keyword −
+
+```
+event BoilerLogHandler BoilerEventLog;
+```
+
+The preceding code defines a delegate named BoilerLogHandler and an event named BoilerEventLog, which invokes the delegate when it is raised.
+
+```
+using System;
+
+namespace SampleApp {
+   public delegate string MyDel(string str);
+	
+   class EventProgram {
+      event MyDel MyEvent;
+		
+      public EventProgram() {
+         this.MyEvent += new MyDel(this.WelcomeUser);
+      }
+      public string WelcomeUser(string username) {
+         return "Welcome " + username;
+      }
+      static void Main(string[] args) {
+         EventProgram obj1 = new EventProgram();
+         string result = obj1.MyEvent("Tutorials Point");
+         Console.WriteLine(result);
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Welcome Tutorials Point
+```
+
+
+## Anonymous Methods
+
+We discussed that delegates are used to reference any methods that has the same signature as that of the delegate. In other words, you can call a method that can be referenced by a delegate using that delegate object.
+
+Anonymous methods provide a technique to pass a code block as a delegate parameter. Anonymous methods are the methods without a name, just the body.
+
+You need not specify the return type in an anonymous method; it is inferred from the return statement inside the method body.
+
+### Writing an Anonymous Method
+Anonymous methods are declared with the creation of the delegate instance, with a delegate keyword. For example,
+
+```
+delegate void NumberChanger(int n);
+...
+NumberChanger nc = delegate(int x) {
+   Console.WriteLine("Anonymous Method: {0}", x);
+};
+```
+
+
+The code block Console.WriteLine("Anonymous Method: {0}", x); is the body of the anonymous method.
+
+The delegate could be called both with anonymous methods as well as named methods in the same way, i.e., by passing the method parameters to the delegate object.
+
+For example,
+```
+nc(10);
+```
+
+### Example
+The following example demonstrates the concept −
+
+```
+using System;
+
+delegate void NumberChanger(int n);
+namespace DelegateAppl {
+   class TestDelegate {
+      static int num = 10;
+      
+      public static void AddNum(int p) {
+         num += p;
+         Console.WriteLine("Named Method: {0}", num);
+      }
+      public static void MultNum(int q) {
+         num *= q;
+         Console.WriteLine("Named Method: {0}", num);
+      }
+      public static int getNum() {
+         return num;
+      }
+      static void Main(string[] args) {
+         //create delegate instances using anonymous method
+         NumberChanger nc = delegate(int x) {
+            Console.WriteLine("Anonymous Method: {0}", x);
+         };
+         
+         //calling the delegate using the anonymous method 
+         nc(10);
+         
+         //instantiating the delegate using the named methods 
+         nc =  new NumberChanger(AddNum);
+         
+         //calling the delegate using the named methods 
+         nc(5);
+         
+         //instantiating the delegate using another named methods 
+         nc =  new NumberChanger(MultNum);
+         
+         //calling the delegate using the named methods 
+         nc(2);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Anonymous Method: 10
+Named Method: 15
+Named Method: 30
+```
+
+
+## Unsafe Codes
+
+
+C# allows using pointer variables in a function of code block when it is marked by the unsafe modifier. The unsafe code or the unmanaged code is a code block that uses a pointer variable.
+
+### Pointers
+A pointer is a variable whose value is the address of another variable i.e., the direct address of the memory location. similar to any variable or constant, you must declare a pointer before you can use it to store any variable address.
+
+The general form of a pointer declaration is −
+
+```
+type *var-name;
+```
+
+Following are valid pointer declarations −
+
+```
+int    *ip;    /* pointer to an integer */
+double *dp;    /* pointer to a double */
+float  *fp;    /* pointer to a float */
+char   *ch     /* pointer to a character */
+```
+
+The following example illustrates use of pointers in C#, using the unsafe modifier −
+
+```
+using System;
+
+namespace UnsafeCodeApplication {
+   class Program {
+      static unsafe void Main(string[] args) {
+         int var = 20;
+         int* p = &var;
+         
+         Console.WriteLine("Data is: {0} ",  var);
+         Console.WriteLine("Address is: {0}",  (int)p);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code wass compiled and executed, it produces the following result −
+
+```
+Data is: 20
+Address is: 99215364
+```
+
+
+Instead of declaring an entire method as unsafe, you can also declare a part of the code as unsafe. The example in the following section shows this.
+
+### Retrieving the Data Value Using a Pointer
+You can retrieve the data stored at the located referenced by the pointer variable, using the ToString() method. The following example demonstrates this −
+
+```
+using System;
+
+namespace UnsafeCodeApplication {
+   class Program {
+      public static void Main() {
+         unsafe {
+            int var = 20;
+            int* p = &var;
+            
+            Console.WriteLine("Data is: {0} " , var);
+            Console.WriteLine("Data is: {0} " , p->ToString());
+            Console.WriteLine("Address is: {0} " , (int)p);
+         }
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code was compiled and executed, it produces the following result −
+
+```
+Data is: 20
+Data is: 20
+Address is: 77128984
+```
+
+### Passing Pointers as Parameters to Methods
+You can pass a pointer variable to a method as parameter. The following example illustrates this −
+
+```
+using System;
+
+namespace UnsafeCodeApplication {
+   class TestPointer {
+      public unsafe void swap(int* p, int *q) {
+         int temp = *p;
+         *p = *q;
+         *q = temp;
+      }
+      public unsafe static void Main() {
+         TestPointer p = new TestPointer();
+         int var1 = 10;
+         int var2 = 20;
+         int* x = &var1;
+         int* y = &var2;
+         
+         Console.WriteLine("Before Swap: var1:{0}, var2: {1}", var1, var2);
+         p.swap(x, y);
+
+         Console.WriteLine("After Swap: var1:{0}, var2: {1}", var1, var2);
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+Before Swap: var1: 10, var2: 20
+After Swap: var1: 20, var2: 10
+```
+
+### Accessing Array Elements Using a Pointer
+In C#, an array name and a pointer to a data type same as the array data, are not the same variable type. For example, int *p and int[] p, are not same type. You can increment the pointer variable p because it is not fixed in memory but an array address is fixed in memory, and you can't increment that.
+
+Therefore, if you need to access an array data using a pointer variable, as we traditionally do in C, or C++ ( please check: C Pointers), you need to fix the pointer using the fixed keyword.
+
+The following example demonstrates this −
+
+```
+using System;
+
+namespace UnsafeCodeApplication {
+   class TestPointer {
+      public unsafe static void Main() {
+         int[]  list = {10, 100, 200};
+         fixed(int *ptr = list)
+         
+         /* let us have array address in pointer */
+         for ( int i = 0; i < 3; i++) {
+            Console.WriteLine("Address of list[{0}]={1}",i,(int)(ptr + i));
+            Console.WriteLine("Value of list[{0}]={1}", i, *(ptr + i));
+         }
+         
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code was compiled and executed, it produces the following result −
+
+```
+Address of list[0] = 31627168
+Value of list[0] = 10
+Address of list[1] = 31627172
+Value of list[1] = 100
+Address of list[2] = 31627176
+Value of list[2] = 200
+```
+
+### Compiling Unsafe Code
+For compiling unsafe code, you have to specify the /unsafe command-line switch with command-line compiler.
+
+For example, to compile a program named prog1.cs containing unsafe code, from command line, give the command −
+```
+csc /unsafe prog1.cs
+```
+
+If you are using Visual Studio IDE then you need to enable use of unsafe code in the project properties.
+
+To do this −
+
+- Open project properties by double clicking the properties node in the Solution Explorer.
+- Click on the Build tab.
+- Select the option "Allow unsafe code".
+
+## Multithreading
+A thread is defined as the execution path of a program. Each thread defines a unique flow of control. If your application involves complicated and time consuming operations, then it is often helpful to set different execution paths or threads, with each thread performing a particular job.
+
+Threads are lightweight processes. One common example of use of thread is implementation of concurrent programming by modern operating systems. Use of threads saves wastage of CPU cycle and increase efficiency of an application.
+
+So far we wrote the programs where a single thread runs as a single process which is the running instance of the application. However, this way the application can perform one job at a time. To make it execute more than one task at a time, it could be divided into smaller threads.
+
+### Thread Life Cycle
+The life cycle of a thread starts when an object of the System.Threading.Thread class is created and ends when the thread is terminated or completes execution.
+
+Following are the various states in the life cycle of a thread −
+
+- The Unstarted State − It is the situation when the instance of the thread is created but the Start method is not called.
+- The Ready State − It is the situation when the thread is ready to run and waiting CPU cycle.
+- The Not Runnable State − A thread is not executable, when
+
+   - Sleep method has been called
+   - Wait method has been called
+   - Blocked by I/O operations
+- The Dead State − It is the situation when the thread completes execution or is aborted.
+
+### The Main Thread
+In C#, the System.Threading.Thread class is used for working with threads. It allows creating and accessing individual threads in a multithreaded application. The first thread to be executed in a process is called the main thread.
+
+When a C# program starts execution, the main thread is automatically created. The threads created using the Thread class are called the child threads of the main thread. You can access a thread using the CurrentThread property of the Thread class.
+
+The following program demonstrates main thread execution −
+
+```
+using System;
+using System.Threading;
+
+namespace MultithreadingApplication {
+   class MainThreadProgram {
+      static void Main(string[] args) {
+         Thread th = Thread.CurrentThread;
+         th.Name = "MainThread";
+         
+         Console.WriteLine("This is {0}", th.Name);
+         Console.ReadKey();
+      }
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+
+```
+This is MainThread
+```
+
+### Creating Threads
+Threads are created by extending the Thread class. The extended Thread class then calls the Start() method to begin the child thread execution.
+
+The following program demonstrates the concept −
+
+```
+using System;
+using System.Threading;
+
+namespace MultithreadingApplication {
+   class ThreadCreationProgram {
+      public static void CallToChildThread() {
+         Console.WriteLine("Child thread starts");
+      }
+      static void Main(string[] args) {
+         ThreadStart childref = new ThreadStart(CallToChildThread);
+         Console.WriteLine("In Main: Creating the Child thread");
+         Thread childThread = new Thread(childref);
+         childThread.Start();
+         Console.ReadKey();
+      }
+   }
+}
+```
+
+When the above code is compiled and executed, it produces the following result −
+
+```
+In Main: Creating the Child thread
+Child thread starts
+```
+
+### Managing Threads
+The Thread class provides various methods for managing threads.
+
+The following example demonstrates the use of the sleep() method for making a thread pause for a specific period of time.
+
+```
+using System;
+using System.Threading;
+
+namespace MultithreadingApplication {
+   class ThreadCreationProgram {
+      public static void CallToChildThread() {
+         Console.WriteLine("Child thread starts");
+         
+         // the thread is paused for 5000 milliseconds
+         int sleepfor = 5000; 
+         
+         Console.WriteLine("Child Thread Paused for {0} seconds", sleepfor / 1000);
+         Thread.Sleep(sleepfor);
+         Console.WriteLine("Child thread resumes");
+      }
+      
+      static void Main(string[] args) {
+         ThreadStart childref = new ThreadStart(CallToChildThread);
+         Console.WriteLine("In Main: Creating the Child thread");
+         
+         Thread childThread = new Thread(childref);
+         childThread.Start();
+         Console.ReadKey();
+      }
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+
+```
+In Main: Creating the Child thread
+Child thread starts
+Child Thread Paused for 5 seconds
+Child thread resumes
+```
+
+### Destroying Threads
+The Abort() method is used for destroying threads.
+
+The runtime aborts the thread by throwing a ThreadAbortException. This exception cannot be caught, the control is sent to the finally block, if any.
+
+The following program illustrates this −
+
+```
+using System;
+using System.Threading;
+
+namespace MultithreadingApplication {
+   class ThreadCreationProgram {
+      public static void CallToChildThread() {
+         try {
+            Console.WriteLine("Child thread starts");
+            
+            // do some work, like counting to 10
+            for (int counter = 0; counter <= 10; counter++) {
+               Thread.Sleep(500);
+               Console.WriteLine(counter);
+            }
+            
+            Console.WriteLine("Child Thread Completed");
+         } catch (ThreadAbortException e) {
+            Console.WriteLine("Thread Abort Exception");
+         } finally {
+            Console.WriteLine("Couldn't catch the Thread Exception");
+         }
+      }
+      static void Main(string[] args) {
+         ThreadStart childref = new ThreadStart(CallToChildThread);
+         Console.WriteLine("In Main: Creating the Child thread");
+         
+         Thread childThread = new Thread(childref);
+         childThread.Start();
+         
+         //stop the main thread for some time
+         Thread.Sleep(2000);
+         
+         //now abort the child
+         Console.WriteLine("In Main: Aborting the Child thread");
+         
+         childThread.Abort();
+         Console.ReadKey();
+      }
+   }
+}
+```
+When the above code is compiled and executed, it produces the following result −
+
+```
+In Main: Creating the Child thread
+Child thread starts
+0
+1
+2
+In Main: Aborting the Child thread
+Thread Abort Exception
+Couldn't catch the Thread Exception 
+```
+
