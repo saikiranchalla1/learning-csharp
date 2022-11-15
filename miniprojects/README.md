@@ -17,3 +17,18 @@ It should also allow the following operations:
 
 
 Please note that the student's attributes will follow all the common name conventions and the name will have 3 parts: first name, optional middle name, and last name.
+
+# Project - 2
+Now that you've learned ASP.NET MVC, upgrade the above Console Application to a Web MVC application. Make sure to:
+1. Use repository pattern
+2. Use database of your choice
+3. Be able to perform CRUD operations
+4. Display the students information using Datatables
+5. Use areas for Teachers and Students.
+6. Use the Toastr library to show any notifications
+
+Think about how to show the courses to the students edit or create view. A student can be registered in multiple courses, hence using a dropdown with multi-select might be a good option.
+
+Add a new model to the project for Teachers. Only the teachers will be able to add add courses (use areas for this). 
+
+**Note that there is not need to make the application visually good. We'll take care of this later.**
