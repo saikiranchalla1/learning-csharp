@@ -32,3 +32,14 @@ Think about how to show the courses to the students edit or create view. A stude
 Add a new model to the project for Teachers. Only the teachers will be able to add add courses (use areas for this). 
 
 **Note that there is not need to make the application visually good. We'll take care of this later.**
+
+# Capstone Project 
+Create an API to manage the existing ASPNET MVC Student management project and integrate the Web API with the MVC application. 
+1. Make sure to have proper authentication and authorization.
+2. Dockerize the application
+3. Deploy the app on Azure using Azure DevOps
+4. Extra points for replacing the MVC app with Angular
+5. Keep the Web API and the Frontend in different solutions and host them separately.
+6. Follow CI/CD process to integrate the application with Github
+7. Add unit tests to perform basic testing of your application. 
+8. Use Azure Hosted SQL Server instead of SqlIte
